@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>纪委网站 - 内容页</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    color: #333;
+    background: #f5f5f5;
+    font-size: 16px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+/* ==================== 顶部 ==================== */
+
+.header {
+    height: 112px;
+    background: linear-gradient(90deg, #8b0000, #b4000b);
+    color: #fff;
+}
+
+.header-inner {
+    width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+}
+
+.logo-icon {
+    width: 66px;
+    height: 66px;
+    border: 2px solid #f8d783;
+    border-radius: 50%;
+    margin-right: 18px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #f8d783;
+    font-size: 27px;
+    font-weight: bold;
+}
+
+.logo-icon::after {
+    content: "";
+    position: absolute;
+    inset: 7px;
+    border: 1px solid #f8d783;
+    border-radius: 50%;
+}
+
+.logo-title h1 {
+    font-size: 30px;
+    letter-spacing: 3px;
+    font-weight: bold;
+}
+
+.logo-title p {
+    margin-top: 5px;
+    font-size: 13px;
+    letter-spacing: 2px;
+    opacity: .85;
+}
+
+.header-right {
+    font-size: 14px;
+    opacity: .9;
+}
+
+.logo-title {
+    font-family: "SimSun", "Songti SC", serif;
+}
+
+.logo-title h1 {
+    font-size: 30px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.logo-title p {
+    font-size: 14px;
+    margin-top: 2px;
+    color: #f8df9c;
+    letter-spacing: 3px;
+}
+
+/* ==================== 导航 ==================== */
+
+.nav {
+    height: 52px;
+    background: #a9000b;
+    border-top: 1px solid rgba(255,255,255,.18);
+    border-bottom: 3px solid #d7a84a;
+}
+
+.nav-inner {
+    width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+}
+
+.nav-item {
+    height: 49px;
+    min-width: 125px;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 16px;
+    border-left: 1px solid rgba(255,255,255,.1);
+    transition: .2s;
+}
+
+.nav-item:last-child {
+    border-right: 1px solid rgba(255,255,255,.1);
+}
+
+.nav-item:hover,
+.nav-item.active {
+    background: #8c0009;
+}
+
+/* ==================== 页面主体 ==================== */
+
+.page {
+    width: 1200px;
+    margin: 20px auto 40px;
+}
+
+/* 面包屑 */
+
+.breadcrumb {
+    height: 45px;
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    color: #888;
+    font-size: 14px;
+}
+
+.breadcrumb a {
+    color: #888;
+}
+
+.breadcrumb a:hover {
+    color: #a9000b;
+}
+
+.breadcrumb .arrow {
+    margin: 0 10px;
+    color: #bbb;
+}
+
+/* ==================== 内容主体 ==================== */
+
+.content-wrap {
+    margin-top: 15px;
+    display: flex;
+    gap: 20px;
+}
+
+/* 左侧内容 */
+
+.content-main {
+    width: 870px;
+    background: #fff;
+    border: 1px solid #e4e4e4;
+}
+
+/* 标题区域 */
+
+.article-header {
+    padding: 35px 50px 25px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+
+.article-title {
+    color: #333;
+    font-size: 28px;
+    line-height: 1.6;
+    font-weight: bold;
+}
+
+.article-subtitle {
+    margin-top: 8px;
+    color: #999;
+    font-size: 15px;
+}
+
+.article-info {
+    margin-top: 18px;
+    color: #999;
+    font-size: 13px;
+}
+
+.article-info span {
+    margin: 0 10px;
+}
+
+/* 正文 */
+
+.article-body {
+    padding: 38px 55px 50px;
+    font-size: 16px;
+    line-height: 2.05;
+    color: #444;
+}
+
+.article-body p {
+    margin-bottom: 20px;
+    text-indent: 2em;
+}
+
+.article-body h2 {
+    margin: 28px 0 15px;
+    padding-left: 13px;
+    border-left: 4px solid #a9000b;
+    color: #333;
+    font-size: 19px;
+}
+
+.article-body h3 {
+    margin: 22px 0 12px;
+    color: #a9000b;
+    font-size: 17px;
+}
+
+.article-body strong {
+    color: #a9000b;
+}
+
+.article-body img {
+    max-width: 100%;
+    display: block;
+    margin: 20px auto;
+}
+
+/* ==================== 附件 ==================== */
+
+.attachments {
+    margin: 10px 55px 40px;
+    border-top: 1px solid #eee;
+    padding-top: 22px;
+}
+
+.attachments-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #a9000b;
+    margin-bottom: 12px;
+}
+
+.attachments li {
+    line-height: 34px;
+    border-bottom: 1px dashed #eee;
+    font-size: 14px;
+}
+
+.attachments li a {
+    color: #555;
+}
+
+.attachments li a:hover {
+    color: #a9000b;
+}
+
+/* ==================== 上下篇 ==================== */
+
+.article-page {
+    border-top: 1px solid #eee;
+    padding: 18px 55px;
+    font-size: 14px;
+    color: #666;
+}
+
+.article-page p {
+    line-height: 30px;
+}
+
+.article-page a:hover {
+    color: #a9000b;
+}
+
+/* ==================== 右侧 ==================== */
+
+.sidebar {
+    width: 310px;
+}
+
+/* 栏目卡片 */
+
+.side-box {
+    background: #fff;
+    border: 1px solid #e4e4e4;
+    margin-bottom: 18px;
+}
+
+.side-title {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding: 0 18px;
+    border-bottom: 1px solid #eee;
+    position: relative;
+}
+
+.side-title:before {
+    content: "";
+    width: 4px;
+    height: 20px;
+    background: #a9000b;
+    margin-right: 10px;
+}
+
+.side-title h3 {
+    color: #333;
+    font-size: 17px;
+}
+
+.side-title a {
+    margin-left: auto;
+    color: #999;
+    font-size: 12px;
+}
+
+.side-title a:hover {
+    color: #a9000b;
+}
+
+/* 侧边新闻 */
+
+.side-list {
+    padding: 10px 18px 15px;
+}
+
+.side-list li {
+    line-height: 38px;
+    border-bottom: 1px dashed #eee;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.side-list li:last-child {
+    border-bottom: none;
+}
+
+.side-list a {
+    color: #555;
+    font-size: 14px;
+}
+
+.side-list a:hover {
+    color: #a9000b;
+}
+
+.side-list li:before {
+    content: "▪";
+    color: #b4000b;
+    margin-right: 8px;
+}
+
+/* ==================== 快速导航 ==================== */
+
+.quick-nav {
+    padding: 15px;
+}
+
+.quick-nav a {
+    display: inline-block;
+    width: 48%;
+    height: 42px;
+    line-height: 42px;
+    text-align: center;
+    background: #fafafa;
+    border: 1px solid #eee;
+    margin-bottom: 8px;
+    color: #555;
+    font-size: 14px;
+}
+
+.quick-nav a:hover {
+    background: #a9000b;
+    border-color: #a9000b;
+    color: #fff;
+}
+
+/* ==================== 举报入口 ==================== */
+
+.report-box {
+    background: linear-gradient(135deg, #8d0008, #b4000b);
+    color: #fff;
+    padding: 22px;
+}
+
+.report-box h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.report-box p {
+    font-size: 13px;
+    line-height: 1.8;
+    opacity: .9;
+}
+
+.report-btn {
+    display: block;
+    margin-top: 15px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    background: #d7a84a;
+    color: #fff;
+    font-size: 14px;
+}
+
+.report-btn:hover {
+    background: #e4b95e;
+}
+
+/* ==================== 页脚 ==================== */
+
+.footer {
+    margin-top: 30px;
+    background: #790008;
+    color: rgba(255,255,255,.8);
+    text-align: center;
+    padding: 28px 0;
+    font-size: 13px;
+    line-height: 2;
+}
+
+.footer-line {
+    width: 1200px;
+    margin: 0 auto 15px;
+    height: 1px;
+    background: rgba(255,255,255,.18);
+}
+
+/* ==================== 手机适配 ==================== */
+
+@media screen and (max-width: 900px) {
+
+    .header-inner,
+    .nav-inner,
+    .page,
+    .footer-line {
+        width: 94%;
+    }
+
+    .header {
+        height: 95px;
+    }
+
+    .logo-icon {
+        width: 52px;
+        height: 52px;
+        font-size: 21px;
+    }
+
+    .logo-title h1 {
+        font-size: 24px;
+    }
+
+    .logo-title p {
+        display: none;
+    }
+
+    .header-right {
+        display: none;
+    }
+
+    .nav {
+        overflow-x: auto;
+    }
+
+    .nav-inner {
+        width: max-content;
+    }
+
+    .nav-item {
+        min-width: 100px;
+        font-size: 14px;
+    }
+
+    .content-wrap {
+        display: block;
+    }
+
+    .content-main,
+    .sidebar {
+        width: 100%;
+    }
+
+    .sidebar {
+        margin-top: 15px;
+    }
+
+    .article-header {
+        padding: 25px 20px 20px;
+    }
+
+    .article-title {
+        font-size: 22px;
+    }
+
+    .article-body {
+        padding: 25px 20px;
+        font-size: 15px;
+    }
+
+    .attachments,
+    .article-page {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ==================== 顶部 ==================== -->
+
+<header class="header">
+    <div class="header-inner">
+
+        <div class="logo-area">
+
+            <div class="logo-icon">
+                这里<br>logo
+            </div>
+
+            <div class="logo-title">
+                <h1>四川职业技术学院纪委监察处</h1>
+                <p>DISCIPLINE INSPECTION & SUPERVISION</p>
+            </div>
+
+        </div>
+
+        <div class="header-right">
+            清风扬正气 · 廉洁促发展
+        </div>
+
+    </div>
+</header>
+
+
+<!-- ==================== 导航 ==================== -->
+
+<nav class="nav">
+    <div class="nav-inner">
+
+        <a href="#" class="nav-item">网站首页</a>
+        <a href="#" class="nav-item active">新闻公告</a>
+        <a href="#" class="nav-item">政策法规</a>
+        <a href="#" class="nav-item">警示教育</a>
+        <a href="#" class="nav-item">规章制度</a>
+        <a href="#" class="nav-item">举报方式</a>
+        <a href="#" class="nav-item">信息公开</a>
+        <a href="#" class="nav-item">下载中心</a>
+
+    </div>
+</nav>
+
+
+<!-- ==================== 页面 ==================== -->
+
+<div class="page">
+
+    <!-- 面包屑 -->
+
+    <div class="breadcrumb">
+
+        <a href="#">首页</a>
+
+        <span class="arrow">›</span>
+
+        <a href="#">新闻公告</a>
+
+        <span class="arrow">›</span>
+
+        <span>工作动态</span>
+
+    </div>
+
+
+    <div class="content-wrap">
+
+        <!-- ==================== 左侧正文 ==================== -->
+
+        <main class="content-main">
+
+            <div class="article-header">
+
+                <h1 class="article-title">
+                    学校召开党风廉政建设专题会议
+                </h1>
+
+                <div class="article-subtitle">
+                    深入推进全面从严治党 持续营造风清气正良好环境
+                </div>
+
+                <div class="article-info">
+                    <span>来源：纪委办公室</span>
+                    <span>发布时间：2026-09-29</span>
+                    <span>浏览次数：128</span>
+                </div>
+
+            </div>
+
+
+            <!-- 正文 -->
+
+            <article class="article-body">
+
+                <p>
+                    近日，学校召开党风廉政建设专题会议，深入学习贯彻全面从严治党有关要求，分析研判党风廉政建设和反腐败工作形势，研究部署下一阶段重点工作。
+                </p>
+
+                <p>
+                    会议强调，要坚持以党的政治建设为统领，持续强化纪律教育和警示教育，引导党员干部进一步增强纪律意识、规矩意识和廉洁意识，把严的基调、严的措施、严的氛围长期坚持下去。
+                </p>
+
+                <h2>会议指出</h2>
+
+                <p>
+                    要进一步压紧压实全面从严治党政治责任，严格落实“一岗双责”，推动党风廉政建设与业务工作同谋划、同部署、同推进、同考核。
+                </p>
+
+                <p>
+                    要持续加强重点领域、关键岗位和重要环节监督，完善风险防控机制，强化日常监督管理，及时发现并纠正苗头性、倾向性问题。
+                </p>
+
+                <h2>会议要求</h2>
+
+                <p>
+                    一要<strong>强化政治监督</strong>，推动各项工作落地落实；二要<strong>深化纪律教育</strong>，推动纪律教育融入日常、抓在经常；三要<strong>加强监督检查</strong>，不断提升监督质效；四要<strong>持续改进作风</strong>，推动形成务实高效、清正廉洁的工作氛围。
+                </p>
+
+                <p>
+                    会议要求，各部门要结合工作实际，认真梳理廉政风险点，完善防控措施，切实把全面从严治党的各项要求落实到具体工作中，以更加严明的纪律、更加扎实的作风保障学校事业高质量发展。
+                </p>
+
+            </article>
+
+
+            <!-- 附件 -->
+
+            <div class="attachments">
+
+                <div class="attachments-title">
+                    附件下载
+                </div>
+
+                <ul>
+                    <li>
+                        <a href="#">附件1：党风廉政建设专题会议相关材料.docx</a>
+                    </li>
+
+                    <li>
+                        <a href="#">附件2：廉政风险防控工作表.xlsx</a>
+                    </li>
+                </ul>
+
+            </div>
+
+
+            <!-- 上一篇 / 下一篇 -->
+
+            <div class="article-page">
+
+                <p>
+                    <span>上一篇：</span>
+                    <a href="#">学校召开全面从严治党工作专题会议</a>
+                </p>
+
+                <p>
+                    <span>下一篇：</span>
+                    <a href="#">学校开展廉政警示教育活动</a>
+                </p>
+
+            </div>
+
+        </main>
+
+
+        <!-- ==================== 右侧 ==================== -->
+
+        <aside class="sidebar">
+
+
+            <!-- 新闻列表 -->
+
+            <div class="side-box">
+
+                <div class="side-title">
+
+                    <h3>新闻公告</h3>
+
+                    <a href="#">更多 &gt;</a>
+
+                </div>
+
+                <ul class="side-list">
+
+                    <li>
+                        <a href="#">学校召开党风廉政建设专题会议</a>
+                    </li>
+
+                    <li>
+                        <a href="#">纪委开展重点领域监督检查</a>
+                    </li>
+
+                    <li>
+                        <a href="#">学校召开全面从严治党工作会议</a>
+                    </li>
+
+                    <li>
+                        <a href="#">开展廉政警示教育专题活动</a>
+                    </li>
+
+                    <li>
+                        <a href="#">纪委召开监督工作专题会议</a>
+                    </li>
+
+                    <li>
+                        <a href="#">持续推进清廉校园建设</a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- 快速导航 -->
+
+            <div class="side-box">
+
+                <div class="side-title">
+
+                    <h3>快速导航</h3>
+
+                </div>
+
+                <div class="quick-nav">
+
+                    <a href="#">政策法规</a>
+                    <a href="#">警示教育</a>
+                    <a href="#">规章制度</a>
+                    <a href="#">举报方式</a>
+                    <a href="#">下载中心</a>
+                    <a href="#">监督举报</a>
+
+                </div>
+
+            </div>
+
+
+            <!-- 举报 -->
+
+            <div class="side-box report-box">
+
+                <h3>监督举报</h3>
+
+                <p>
+                    欢迎通过正规渠道反映问题线索，我们将依法依规受理。
+                </p>
+
+                <a href="#" class="report-btn">
+                    进入举报方式
+                </a>
+
+            </div>
+
+
+        </aside>
+
+    </div>
+
+</div>
+
+
+<!-- ==================== 页脚 ==================== -->
+
+<footer class="footer">
+
+    <div class="footer-line"></div>
+
+    <p>
+        版权所有 © 2026 纪委监委
+    </p>
+
+    <p>
+        地址：××省××市××路××号　　联系电话：0000-0000000
+    </p>
+
+    <p>
+        网站建设与维护：信息化中心
+    </p>
+
+</footer>
+
+</body>
+</html>

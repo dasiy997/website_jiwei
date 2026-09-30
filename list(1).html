@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>纪委网站 - 新闻列表</title>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    font-size: 16px;
+    color: #333;
+    background: #f5f5f5;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+
+/* ==================== 顶部 ==================== */
+
+.header {
+    height: 112px;
+    background: linear-gradient(
+        90deg,
+        #8b0000,
+        #a9000b,
+        #b4000b
+    );
+    color: #fff;
+}
+
+.header-inner {
+    width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+}
+
+.logo-icon {
+    width: 66px;
+    height: 66px;
+    border: 2px solid #f8d783;
+    border-radius: 50%;
+    margin-right: 18px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #f8d783;
+    font-size: 27px;
+    font-weight: bold;
+}
+
+.logo-icon::after {
+    content: "";
+    position: absolute;
+    inset: 7px;
+    border: 1px solid #f8d783;
+    border-radius: 50%;
+}
+
+.logo-title h1 {
+    font-size: 30px;
+    letter-spacing: 3px;
+}
+
+.logo-title p {
+    margin-top: 5px;
+
+    font-size: 13px;
+    letter-spacing: 2px;
+
+    opacity: .85;
+}
+
+.header-right {
+    font-size: 14px;
+    opacity: .9;
+}
+
+
+.logo-title {
+    font-family: "SimSun", "Songti SC", serif;
+}
+
+.logo-title h1 {
+    font-size: 30px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.logo-title p {
+    font-size: 14px;
+    margin-top: 2px;
+    color: #f8df9c;
+    letter-spacing: 3px;
+}
+
+/* ==================== 导航 ==================== */
+
+.nav {
+    height: 52px;
+
+    background: #a9000b;
+
+    border-top: 1px solid rgba(255,255,255,.15);
+    border-bottom: 3px solid #d7a84a;
+}
+
+.nav-inner {
+    width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+
+    display: flex;
+}
+
+.nav-item {
+    min-width: 125px;
+    height: 49px;
+
+    padding: 0 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #fff;
+
+    font-size: 16px;
+
+    border-left: 1px solid rgba(255,255,255,.1);
+
+    transition: .2s;
+}
+
+.nav-item:last-child {
+    border-right: 1px solid rgba(255,255,255,.1);
+}
+
+.nav-item:hover,
+.nav-item.active {
+    background: #8b0008;
+}
+
+
+/* ==================== 页面主体 ==================== */
+
+.page {
+    width: 1200px;
+    margin: 20px auto 40px;
+}
+
+
+/* ==================== 面包屑 ==================== */
+
+.breadcrumb {
+    height: 45px;
+
+    padding: 0 20px;
+
+    background: #fff;
+
+    border: 1px solid #e4e4e4;
+
+    display: flex;
+    align-items: center;
+
+    color: #888;
+
+    font-size: 14px;
+}
+
+.breadcrumb a:hover {
+    color: #a9000b;
+}
+
+.breadcrumb .arrow {
+    margin: 0 10px;
+    color: #bbb;
+}
+
+
+/* ==================== 主体 ==================== */
+
+.content-wrap {
+    display: flex;
+
+    gap: 20px;
+
+    margin-top: 15px;
+}
+
+
+/* ==================== 左侧栏目 ==================== */
+
+.sidebar-left {
+    width: 235px;
+}
+
+.side-menu {
+    background: #fff;
+
+    border: 1px solid #e4e4e4;
+}
+
+.side-menu-title {
+    height: 64px;
+
+    padding-left: 25px;
+
+    display: flex;
+    align-items: center;
+
+    background: #a9000b;
+
+    color: #fff;
+
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.side-menu-title span {
+    margin-right: 10px;
+
+    font-size: 22px;
+}
+
+.side-menu ul {
+    padding: 8px 0;
+}
+
+.side-menu li {
+    height: 52px;
+
+    border-bottom: 1px solid #eee;
+}
+
+.side-menu li:last-child {
+    border-bottom: none;
+}
+
+.side-menu li a {
+    height: 100%;
+
+    padding: 0 20px;
+
+    display: flex;
+    align-items: center;
+
+    color: #555;
+
+    font-size: 15px;
+
+    transition: .2s;
+}
+
+.side-menu li a:before {
+    content: "›";
+
+    margin-right: 10px;
+
+    color: #aaa;
+
+    font-size: 18px;
+}
+
+.side-menu li a:hover,
+.side-menu li.active a {
+    color: #a9000b;
+
+    background: #fff6f6;
+
+    padding-left: 25px;
+}
+
+.side-menu li.active a:before {
+    color: #a9000b;
+}
+
+
+/* ==================== 左侧举报 ==================== */
+
+.report-box {
+    margin-top: 18px;
+
+    padding: 20px;
+
+    background: linear-gradient(
+        135deg,
+        #8b0008,
+        #b4000b
+    );
+
+    color: #fff;
+}
+
+.report-box h3 {
+    font-size: 18px;
+
+    margin-bottom: 8px;
+}
+
+.report-box p {
+    font-size: 13px;
+
+    line-height: 1.8;
+
+    opacity: .9;
+}
+
+.report-btn {
+    display: block;
+
+    height: 38px;
+
+    margin-top: 14px;
+
+    line-height: 38px;
+
+    text-align: center;
+
+    background: #d7a84a;
+
+    color: #fff;
+
+    font-size: 14px;
+}
+
+.report-btn:hover {
+    background: #e3b45b;
+}
+
+
+/* ==================== 右侧列表 ==================== */
+
+.content-main {
+    flex: 1;
+
+    background: #fff;
+
+    border: 1px solid #e4e4e4;
+}
+
+
+/* ==================== 列表标题 ==================== */
+
+.list-header {
+    height: 70px;
+
+    padding: 0 30px;
+
+    display: flex;
+    align-items: center;
+
+    border-bottom: 1px solid #eee;
+}
+
+.list-header-title {
+    display: flex;
+    align-items: center;
+
+    font-size: 21px;
+
+    font-weight: bold;
+
+    color: #333;
+}
+
+.list-header-title:before {
+    content: "";
+
+    width: 5px;
+    height: 24px;
+
+    margin-right: 12px;
+
+    background: #a9000b;
+}
+
+.list-header-more {
+    margin-left: auto;
+
+    color: #999;
+
+    font-size: 13px;
+}
+
+
+/* ==================== 新闻列表 ==================== */
+
+.news-list {
+    padding: 5px 30px 20px;
+}
+
+.news-item {
+    height: 76px;
+
+    display: flex;
+    align-items: center;
+
+    border-bottom: 1px dashed #ddd;
+}
+
+.news-item:last-child {
+    border-bottom: none;
+}
+
+.news-item a {
+    flex: 1;
+
+    min-width: 0;
+
+    display: flex;
+    align-items: center;
+
+    color: #444;
+
+    font-size: 16px;
+}
+
+.news-item a:before {
+    content: "";
+
+    width: 5px;
+    height: 5px;
+
+    flex-shrink: 0;
+
+    margin-right: 12px;
+
+    background: #b4000b;
+
+    border-radius: 50%;
+}
+
+.news-title {
+    overflow: hidden;
+
+    white-space: nowrap;
+
+    text-overflow: ellipsis;
+}
+
+.news-item a:hover {
+    color: #a9000b;
+}
+
+.news-date {
+    width: 95px;
+
+    flex-shrink: 0;
+
+    margin-left: 20px;
+
+    text-align: right;
+
+    color: #999;
+
+    font-size: 13px;
+}
+
+
+/* ==================== 置顶新闻 ==================== */
+
+.news-item.top .news-title {
+    font-weight: bold;
+
+    color: #a9000b;
+}
+
+.top-label {
+    display: inline-block;
+
+    height: 20px;
+
+    padding: 0 6px;
+
+    margin-right: 8px;
+
+    line-height: 20px;
+
+    background: #a9000b;
+
+    color: #fff;
+
+    font-size: 11px;
+
+    border-radius: 2px;
+}
+
+
+/* ==================== 分页 ==================== */
+
+.pagination {
+    padding: 25px 30px 30px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 7px;
+
+    border-top: 1px solid #eee;
+}
+
+.pagination a,
+.pagination span {
+    min-width: 34px;
+    height: 34px;
+
+    padding: 0 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #ddd;
+
+    background: #fff;
+
+    color: #666;
+
+    font-size: 13px;
+}
+
+.pagination a:hover,
+.pagination .active {
+    border-color: #a9000b;
+
+    background: #a9000b;
+
+    color: #fff;
+}
+
+.pagination .disabled {
+    color: #bbb;
+
+    background: #f8f8f8;
+}
+
+
+/* ==================== 底部提示 ==================== */
+
+.list-footer {
+    padding: 0 30px 20px;
+
+    color: #999;
+
+    font-size: 13px;
+
+    text-align: center;
+}
+
+
+/* ==================== 页脚 ==================== */
+
+.footer {
+    padding: 28px 0;
+
+    background: #790008;
+
+    color: rgba(255,255,255,.8);
+
+    font-size: 13px;
+
+    line-height: 2;
+
+    text-align: center;
+}
+
+.footer-line {
+    width: 1200px;
+
+    height: 1px;
+
+    margin: 0 auto 15px;
+
+    background: rgba(255,255,255,.18);
+}
+
+
+/* ==================== 手机端 ==================== */
+
+@media screen and (max-width: 900px) {
+
+    .header-inner,
+    .nav-inner,
+    .page,
+    .footer-line {
+        width: 94%;
+    }
+
+    .header {
+        height: 95px;
+    }
+
+    .logo-icon {
+        width: 52px;
+        height: 52px;
+
+        font-size: 21px;
+    }
+
+    .logo-title h1 {
+        font-size: 24px;
+    }
+
+    .logo-title p,
+    .header-right {
+        display: none;
+    }
+
+    .nav {
+        overflow-x: auto;
+    }
+
+    .nav-inner {
+        width: max-content;
+    }
+
+    .nav-item {
+        min-width: 100px;
+
+        font-size: 14px;
+    }
+
+    .content-wrap {
+        display: block;
+    }
+
+    .sidebar-left,
+    .content-main {
+        width: 100%;
+    }
+
+    .sidebar-left {
+        margin-bottom: 15px;
+    }
+
+    .side-menu-title {
+        height: 52px;
+
+        font-size: 18px;
+    }
+
+    .side-menu ul {
+        display: flex;
+
+        overflow-x: auto;
+    }
+
+    .side-menu li {
+        flex-shrink: 0;
+
+        border-bottom: none;
+    }
+
+    .side-menu li a {
+        padding: 0 18px;
+    }
+
+    .report-box {
+        display: none;
+    }
+
+    .list-header {
+        padding: 0 18px;
+    }
+
+    .news-list {
+        padding: 5px 18px 15px;
+    }
+
+    .news-item {
+        height: auto;
+        min-height: 65px;
+
+        padding: 10px 0;
+    }
+
+    .news-item a {
+        font-size: 14px;
+    }
+
+    .news-date {
+        width: 78px;
+
+        font-size: 12px;
+    }
+
+    .pagination {
+        padding: 20px 10px;
+    }
+
+    .pagination a,
+    .pagination span {
+        min-width: 30px;
+
+        padding: 0 7px;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- ==================== 顶部 ==================== -->
+
+<header class="header">
+
+    <div class="header-inner">
+
+        <div class="logo-area">
+
+            <div class="logo-icon">
+                这里<br>logo
+            </div>
+
+            <div class="logo-title">
+
+                <h1>四川职业技术学院纪委监察处</h1>
+
+                <p>
+                    DISCIPLINE INSPECTION & SUPERVISION
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="header-right">
+            清风扬正气 · 廉洁促发展
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- ==================== 导航 ==================== -->
+
+<nav class="nav">
+
+    <div class="nav-inner">
+
+        <a href="#" class="nav-item">
+            网站首页
+        </a>
+
+        <a href="#" class="nav-item active">
+            新闻公告
+        </a>
+
+        <a href="#" class="nav-item">
+            政策法规
+        </a>
+
+        <a href="#" class="nav-item">
+            警示教育
+        </a>
+
+        <a href="#" class="nav-item">
+            规章制度
+        </a>
+
+        <a href="#" class="nav-item">
+            举报方式
+        </a>
+
+        <a href="#" class="nav-item">
+            信息公开
+        </a>
+
+        <a href="#" class="nav-item">
+            下载中心
+        </a>
+
+    </div>
+
+</nav>
+
+
+
+<!-- ==================== 页面主体 ==================== -->
+
+<div class="page">
+
+
+    <!-- 面包屑 -->
+
+    <div class="breadcrumb">
+
+        <a href="#">
+            首页
+        </a>
+
+        <span class="arrow">
+            ›
+        </span>
+
+        <a href="#">
+            新闻公告
+        </a>
+
+        <span class="arrow">
+            ›
+        </span>
+
+        <span>
+            工作动态
+        </span>
+
+    </div>
+
+
+
+    <div class="content-wrap">
+
+
+        <!-- ==================== 左侧栏目 ==================== -->
+
+        <aside class="sidebar-left">
+
+
+            <div class="side-menu">
+
+                <div class="side-menu-title">
+
+                    <span>▦</span>
+
+                    新闻公告
+
+                </div>
+
+
+                <ul>
+
+                    <li class="active">
+                        <a href="#">
+                            工作动态
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            重要通知
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            监督检查
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            审查调查
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            巡察工作
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            清廉校园
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- 举报入口 -->
+
+            <div class="report-box">
+
+                <h3>
+                    监督举报
+                </h3>
+
+                <p>
+                    欢迎通过正规渠道反映问题线索，我们将依法依规受理。
+                </p>
+
+                <a href="#" class="report-btn">
+                    进入举报方式
+                </a>
+
+            </div>
+
+        </aside>
+
+
+
+        <!-- ==================== 右侧内容 ==================== -->
+
+        <main class="content-main">
+
+
+            <!-- 列表标题 -->
+
+            <div class="list-header">
+
+                <div class="list-header-title">
+                    工作动态
+                </div>
+
+                <a href="#" class="list-header-more">
+                    首页 &gt; 新闻公告 &gt; 工作动态
+                </a>
+
+            </div>
+
+
+
+            <!-- 新闻列表 -->
+
+            <ul class="news-list">
+
+
+                <li class="news-item top">
+
+                    <a href="#">
+
+                        <span class="top-label">
+                            置顶
+                        </span>
+
+                        <span class="news-title">
+                            学校召开党风廉政建设专题会议
+                        </span>
+
+                    </a>
+
+                    <span class="news-date">
+                        2026-09-29
+                    </span>
+
+                </li>
+
+
+                <li class="news-item">
+
+                    <a href="#">
+
+                        <span class="news-title">
+                            学校召开全面从严治党工作专题会议
+                        </span>
+
+                    </a>
+
+                    <span class="news-date">
+                        2026-09-27
+                    </span>
+
+                </li>
+
+
+                <li class="news-item">
+
+                    <a href="#">
+
+                        <span class="news-title">
+                            纪委开展重点领域监督检查工作
+                        </span>
+
+                    </a>
+
+                    <span class="news-date">
+                        2026-09-25
+                    </span>
+
+                </li>
+
+
+                <li class="news-item">
+
+                    <a href="#">
+
+                        <span class="news-title">
+                            学校开展廉政警示教育专题活动
+                        </span>
+
+                    </a>
+
+                    <span class="news-date">
+                        2026-09-23
+                    </span>
+
+                </li>
+
+
+                <li class="news-item">
+
+                    <a href="#">
+
+                        <span class="news-title">
+                            纪委召开监督工作专题会议
+                        </span>
+
+                    </a>
+
+                    <span class="news-date">
+                        2026-09-20
+                    </span>
+
+                </li>
+
+
+                <li class="news-item">
+
+                    <a href="#">
+
+                        <span class="news-title">
+                            持续推进清廉校园建设走深走实
+                        </span>
+
+                    </a>
+
+                    <span class="news-date">
+                        2026-09-18
+                    </span>
+
+                </li>
+
+
+                <li class="news-item">
+
+                    <a href="#">
+
+                        <span class="news-title">
+                            开展新学期廉洁教育专题学习
+                        </span>
+
+                    </a>
+
+                    <span class="news-date">
+                        2026-09-15
+                    </span>
+
+                </li>
+
+
+                <li class="news-item">
+
+                    <a href="#">
+
+                        <span class="news-title">
+                            纪委深入基层开展党风廉政建设调研
+                        </span>
+
+                    </a>
+
+                    <span class="news-date">
+                        2026-09-12
+                    </span>
+
+                </li>
+
+
+                <li class="news-item">
+
+                    <a href="#">
+
+                        <span class="news-title">
+                            强化日常监督 推动监督责任落实
+                        </span>
+
+                    </a>
+
+                    <span class="news-date">
+                        2026-09-10
+                    </span>
+
+                </li>
+
+
+                <li class="news-item">
+
+                    <a href="#">
+
+                        <span class="news-title">
+                            学校召开廉政风险防控工作推进会
+                        </span>
+
+                    </a>
+
+                    <span class="news-date">
+                        2026-09-08
+                    </span>
+
+                </li>
+
+
+                <li class="news-item">
+
+                    <a href="#">
+
+                        <span class="news-title">
+                            认真学习贯彻党风廉政建设有关要求
+                        </span>
+
+                    </a>
+
+                    <span class="news-date">
+                        2026-09-05
+                    </span>
+
+                </li>
+
+
+                <li class="news-item">
+
+                    <a href="#">
+
+                        <span class="news-title">
+                            推进清廉文化建设 营造崇廉尚洁氛围
+                        </span>
+
+                    </a>
+
+                    <span class="news-date">
+                        2026-09-02
+                    </span>
+
+                </li>
+
+
+            </ul>
+
+
+
+            <!-- 分页 -->
+
+            <div class="pagination">
+
+                <span class="disabled">
+                    上一页
+                </span>
+
+                <a href="#" class="active">
+                    1
+                </a>
+
+                <a href="#">
+                    2
+                </a>
+
+                <a href="#">
+                    3
+                </a>
+
+                <a href="#">
+                    4
+                </a>
+
+                <a href="#">
+                    5
+                </a>
+
+                <a href="#">
+                    下一页
+                </a>
+
+            </div>
+
+
+            <div class="list-footer">
+
+                共 56 条记录　当前第 1 / 5 页
+
+            </div>
+
+
+        </main>
+
+    </div>
+
+</div>
+
+
+
+<!-- ==================== 页脚 ==================== -->
+
+<footer class="footer">
+
+    <div class="footer-line"></div>
+
+    <p>
+        版权所有 © 2026 纪委监委
+    </p>
+
+    <p>
+        地址：××省××市××路××号　　联系电话：0000-0000000
+    </p>
+
+    <p>
+        网站建设与维护：信息化中心
+    </p>
+
+</footer>
+
+
+</body>
+</html>
