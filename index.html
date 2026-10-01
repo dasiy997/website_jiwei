@@ -165,7 +165,10 @@ ul {
     background: #0b4ea2;
     color: #fff;
     cursor: pointer;
-    font-size: 18px;}
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;}
 
 /* =========================
    导航
@@ -418,29 +421,19 @@ ul {
     display: flex;
     flex-direction: column;
     background: #fff;
-    padding: 3px 18px;
+    padding: 4px 18px 12px;
     border: 1px solid #d6e2f3;}
 
 .news-list li {
     flex: 1;
-    min-height: 50px;
+    min-height: 34px;
     display: flex;
     align-items: center;
-    border-bottom: 1px dashed #ddd;
-    position: relative;
-    padding-left: 13px;}
+    border-bottom: 1px dashed #e0e0e0;
+    padding-left: 0;}
 
 .news-list li:last-child {
     border-bottom: none;}
-
-.news-list li::before {
-    content: "";
-    width: 4px;
-    height: 4px;
-    border-radius: 50%;
-    background: #c76a6a;
-    position: absolute;
-    left: 1px;}
 
 .news-list a {
     flex: 1;
@@ -500,7 +493,7 @@ ul {
     font-size: 15px;
     margin-left: 10px;}
 
-/* 政策法规 */
+/* 文章列表 */
 
 .policy-item {
     position: relative;
@@ -513,65 +506,74 @@ ul {
     font-weight: bold;}
 
 /* =========================
-   警示教育
+   规章制度（复用警示教育列表样式）
 ========================= */
 
-.warning-section {
+.rules-section {
     margin-top: 25px;
     background: #fff;
-    border: 1px solid #d6e2f3;}
+    border: 1px solid #d6e2f3;
+    box-shadow: 0 6px 22px rgba(16,57,112,.06);}
 
-.warning-content {
+/* 两个模块：取消卡片背景，仅用竖线分隔 */
+.rules-content {
     display: grid;
-    grid-template-columns: 1.3fr 1fr 1fr;
-    gap: 18px;
-    padding: 5px 18px 20px;}
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+    padding: 16px 20px 24px;}
 
-.warning-main {
-    height: 190px;
-    position: relative;
-    overflow: hidden;
-    background:
-        linear-gradient(135deg, rgba(6,45,112,.94), rgba(11,78,162,.72)),
-        #083b86;
-    color: #fff;}
+.rules-card {
+    padding: 4px 28px;
+    transition: none;}
 
-.warning-main img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: .6;}
+.rules-card:first-child {
+    padding-left: 0;}
 
-.warning-main img:not([src]) {
-    display: none;}
+.rules-card:last-child {
+    border-left: 1px solid #e4edf8;
+    padding-right: 0;}
 
-.warning-main .warning-text {
-    position: absolute;
-    left: 22px;
-    bottom: 20px;}
+.rules-card .section-title {
+    height: 52px;
+    margin-bottom: 6px;}
 
-.warning-main h4 {
-    font-size: 24px;
-    margin-bottom: 4px;}
+.rules-list li {
+    display: flex;
+    align-items: center;
+    min-height: 46px;
+    padding: 6px 0;
+    border-bottom: 1px dashed #e9eef6;}
 
-.warning-main p {
-    font-size: 16px;
-    color: #eee;}
+.rules-list li:last-child {
+    border-bottom: none;}
 
-.warning-card {
-    background: #f3f8ff;
-    border-left: 4px solid #c76a6a;
-    padding: 18px;}
+.rules-list a {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    font-size: 17px;
+    color: #2c3a52;
+    transition: color .2s ease;}
 
-.warning-card h4 {
-    color: #073b85;
-    font-size: 20px;
-    margin-bottom: 8px;}
+.rules-list a::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #c76a6a;
+    flex-shrink: 0;
+    margin-right: 11px;}
 
-.warning-card p {
-    color: #4d5e78;
-    font-size: 16px;
-    line-height: 1.8;}
+.rules-list a:hover {
+    color: #b84a4a;}
+
+.rules-list .date {
+    flex-shrink: 0;
+    margin-left: 14px;
+    color: #9aabc4;
+    font-size: 15px;
+    letter-spacing: .3px;}
 
 /* =========================
    举报方式
@@ -621,6 +623,16 @@ ul {
     align-items: center;
     font-size: 23px;}
 
+.icon-svg {
+    width: 1em;
+    height: 1em;
+    display: block;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;}
+
 .report-box h4 {
     color: #073b85;
     font-size: 18px;}
@@ -646,7 +658,7 @@ ul {
 
 .link-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 12px;}
 
 .link-item {
@@ -655,7 +667,8 @@ ul {
     background: #f6fbff;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    padding-left: 18px;
     color: #073b85;
     font-size: 18px;
     font-family: "Microsoft YaHei", "微软雅黑", sans-serif;
@@ -700,34 +713,73 @@ ul {
 .footer {
     margin-top: 20px;
     background: #062d70;
-    color: rgba(255,255,255,.8);}
+    color: rgba(255,255,255,.82);}
 
 .footer-main {
-    padding: 27px 0;
+    padding: 40px 0 34px;
     display: flex;
-    justify-content: space-between;}
+    justify-content: space-between;
+    gap: 48px;
+    flex-wrap: wrap;}
+
+.footer-brand {
+    flex: 1 1 460px;
+    min-width: 0;}
 
 .footer-title {
     color: #fff;
     font-family: "Microsoft YaHei", "微软雅黑", sans-serif;
-    font-size: 22px;
-    margin-bottom: 8px;}
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.55;
+    margin-bottom: 20px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid rgba(255,255,255,.16);}
 
-.footer p {
-    font-size: 15px;
-    line-height: 1.9;}
+.footer-contact p {
+    font-size: 14px;
+    line-height: 2.05;
+    color: rgba(255,255,255,.7);}
 
-.footer-right {
-    text-align: right;}
+.footer-contact .c-label {
+    display: inline-block;
+    width: 70px;
+    color: rgba(255,255,255,.42);
+    margin-right: 6px;}
+
+.footer-links {
+    flex: 0 1 210px;
+    display: flex;
+    flex-direction: column;}
+
+.footer-col-title {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    padding-left: 12px;
+    border-left: 3px solid #4f9bff;}
+
+.footer-links a {
+    font-size: 14px;
+    color: rgba(255,255,255,.7);
+    line-height: 2.15;
+    transition: color .2s, padding-left .2s;}
+
+.footer-links a:hover {
+    color: #fff;
+    padding-left: 6px;}
 
 .footer-bottom {
-    height: 40px;
+    height: auto;
+    padding: 15px 0;
     background: #041f52;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 14px;
-    color: rgba(255,255,255,.65);}
+    font-size: 13px;
+    color: rgba(255,255,255,.55);
+    text-align: center;}
 
 /* =========================
    返回顶部
@@ -794,8 +846,20 @@ ul {
         grid-template-columns: 1fr;}
 
     .warning-content,
+    .rules-content,
     .report-inner {
         grid-template-columns: 1fr;}
+
+    .rules-card {
+        padding: 4px 0;}
+
+    .rules-card:first-child {
+        padding-bottom: 18px;}
+
+    .rules-card:last-child {
+        border-left: none;
+        border-top: 1px solid #e4edf8;
+        padding-top: 18px;}
 
     .report-intro {
         border-right: none;
@@ -821,10 +885,17 @@ ul {
 
     .footer-main {
         flex-direction: column;
-        gap: 20px;}
+        gap: 28px;}
 
-    .footer-right {
-        text-align: left;}
+    .footer-brand {
+        flex: 1 1 auto;}
+
+    .footer-links {
+        flex: 1 1 auto;}
+
+    .footer-col-title {
+        border-left: none;
+        padding-left: 0;}
 }
 
 @media (max-width: 600px) {
@@ -916,7 +987,12 @@ ul {
 
         <div class="search-box">
             <input type="text" placeholder="请输入关键词搜索">
-            <button>?</button>
+            <button aria-label="搜索">
+                <svg class="icon-svg" viewbox="0 0 24 24" aria-hidden="true">
+                    <circle cx="11" cy="11" r="7"></circle>
+                    <path d="m16 16 4 4"></path>
+                </svg>
+            </button>
         </div>
 
     </div>
@@ -943,7 +1019,7 @@ ul {
                 </li>
 
                 <li>
-                    <a href="#">政策法规</a>
+                    <a href="#">要闻摘报</a>
                 </li>
 
                 <li>
@@ -1065,7 +1141,7 @@ ul {
 <div class="three-columns">
 
 
-<!-- 政策法规 -->
+<!-- 要闻摘报 -->
 
 <section class="card">
 
@@ -1073,7 +1149,7 @@ ul {
 
         <div class="title-left">
             <span class="red-line"></span>
-            <h3>政策法规</h3>
+            <h3>要闻摘报</h3>
         </div>
 
         <a href="#" class="more">更多 →</a>
@@ -1081,128 +1157,16 @@ ul {
     </div>
 
 
-    <ul class="card-list">
-
-        <li class="policy-item">
-            <a href="#">中国共产党纪律处分条例</a>
-        </li>
-
-        <li class="policy-item">
-            <a href="#">中华人民共和国监察法</a>
-        </li>
-
-        <li class="policy-item">
-            <a href="#">中华人民共和国公职人员政务处分法</a>
-        </li>
-
-        <li class="policy-item">
-            <a href="#">中国共产党党内监督条例</a>
-        </li>
-
-        <li class="policy-item">
-            <a href="#">中国共产党问责条例</a>
-        </li>
-
-    </ul>
+    <ul class="card-list"><!--#begineditable name="政策list" action="webber.wbst.com.news.ColumnNews" layout="/system/_component/news/list/tpltitlelist.jsp" tpltype="1" contype="news" clone="" viewid="204239" contentviewid="" tagname="政策list"-->elementname<!--#endeditable--></ul>
 
 </section>
 
 
-<!-- 规章制度 -->
+<!-- 警示教育 -->
 
 <section class="card">
 
     <div class="section-title">
-
-        <div class="title-left">
-            <span class="red-line"></span>
-            <h3>规章制度</h3>
-        </div>
-
-        <a href="#" class="more">更多 →</a>
-
-    </div>
-
-
-    <ul class="card-list">
-
-        <li>
-            <a href="#">监督检查工作制度</a>
-        </li>
-
-        <li>
-            <a href="#">廉政风险防控制度</a>
-        </li>
-
-        <li>
-            <a href="#">谈话提醒工作制度</a>
-        </li>
-
-        <li>
-            <a href="#">信访举报工作制度</a>
-        </li>
-
-        <li>
-            <a href="#">纪检监察干部管理制度</a>
-        </li>
-
-    </ul>
-
-</section>
-
-
-<!-- 其他信息 -->
-
-<section class="card">
-
-    <div class="section-title">
-
-        <div class="title-left">
-            <span class="red-line"></span>
-            <h3>监督工作</h3>
-        </div>
-
-        <a href="#" class="more">更多 →</a>
-
-    </div>
-
-
-    <ul class="card-list">
-
-        <li>
-            <a href="#">政治监督</a>
-        </li>
-
-        <li>
-            <a href="#">日常监督</a>
-        </li>
-
-        <li>
-            <a href="#">专项监督</a>
-        </li>
-
-        <li>
-            <a href="#">作风建设</a>
-        </li>
-
-        <li>
-            <a href="#">廉洁文化建设</a>
-        </li>
-
-    </ul>
-
-</section>
-
-</div>
-
-
-<!-- =========================
-     警示教育
-========================= -->
-
-<section class="warning-section">
-
-    <div class="section-title" style="padding:0 18px;">
 
         <div class="title-left">
             <span class="red-line"></span>
@@ -1214,46 +1178,75 @@ ul {
     </div>
 
 
-    <div class="warning-content">
+    <ul class="card-list"><!--#begineditable name="制度list" action="webber.wbst.com.news.ColumnNews" layout="/system/_component/news/list/tpltitlelist.jsp" tpltype="1" contype="news" clone="" viewid="204240" contentviewid="" tagname="制度list"-->elementname<!--#endeditable--></ul>
+
+</section>
 
 
-        <div class="warning-main">
+<!-- 警钟长鸣 -->
 
-            <img alt="警示教育">
+<section class="card">
 
-            <div class="warning-text">
+    <div class="section-title">
 
-                <h4>以案为鉴 · 警钟长鸣</h4>
+        <div class="title-left">
+            <span class="red-line"></span>
+            <h3>警钟长鸣</h3>
+        </div>
 
-                <p>
-                    深化以案促改、以案促治，筑牢拒腐防变思想防线。
-                </p>
+        <a href="#" class="more">更多 →</a>
+
+    </div>
+
+
+    <ul class="card-list"><!--#begineditable name="监督list" action="webber.wbst.com.news.ColumnNews" layout="/system/_component/news/list/tpltitlelist.jsp" tpltype="1" contype="news" clone="" viewid="204241" contentviewid="" tagname="监督list"-->elementname<!--#endeditable--></ul>
+
+</section>
+
+</div>
+
+
+<!-- =========================
+     规章制度
+========================= -->
+
+<section class="rules-section">
+
+    <div class="rules-content">
+
+
+        <div class="rules-card">
+
+            <div class="section-title">
+
+                <div class="title-left">
+                    <span class="red-line"></span>
+                    <h3>政策法规</h3>
+                </div>
+
+                <a href="#" class="more">更多 →</a>
 
             </div>
 
-        </div>
-
-
-        <div class="warning-card">
-
-            <h4>典型案例</h4>
-
-            <p>
-                通过典型违纪违法案例开展警示教育，
-                教育引导党员干部知敬畏、存戒惧、守底线。
-            </p>
+            <ul class="rules-list"><!--#begineditable name="政策法规文章列表" action="webber.wbst.com.news.ColumnNews" layout="/system/_component/news/list/tpltitlelist.jsp" tpltype="1" contype="news" clone="" viewid="204242" contentviewid="" tagname="政策法规文章列表"-->elementname<!--#endeditable--></ul>
 
         </div>
 
 
-        <div class="warning-card">
+        <div class="rules-card">
 
-            <h4>廉洁文化</h4>
+            <div class="section-title">
 
-            <p>
-                弘扬清廉文化，涵养清风正气，
-                推动廉洁教育融入日常、抓在经常。
-            </p>
+                <div class="title-left">
+                    <span class="red-line"></span>
+                    <h3>党内法规</h3>
+                </div>
+
+                <a href="#" class="more">更多 →</a>
+
+            </div>
+
+            <ul class="rules-list"><!--#begineditable name="党内法规文章列表" action="webber.wbst.com.news.ColumnNews" layout="/system/_component/news/list/tpltitlelist.jsp" tpltype="1" contype="news" clone="" viewid="204243" contentviewid="" tagname="党内法规文章列表"-->elementname<!--#endeditable--></ul>
 
         </div>
 
@@ -1287,7 +1280,10 @@ ul {
         <div class="report-box">
 
             <div class="report-icon">
-                ?
+                <svg class="icon-svg" viewbox="0 0 24 24" aria-hidden="true">
+                    <path d="M4 6h16v12H4z"></path>
+                    <path d="m4 7 8 6 8-6"></path>
+                </svg>
             </div>
 
             <div>
@@ -1301,7 +1297,9 @@ ul {
         <div class="report-box">
 
             <div class="report-icon">
-                ?
+                <svg class="icon-svg" viewbox="0 0 24 24" aria-hidden="true">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.4 19.4 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.96.34 1.9.65 2.81a2 2 0 0 1-.45 2.11L8.04 9.91a16 16 0 0 0 6.05 6.05l1.27-1.27a2 2 0 0 1 2.11-.45c.91.31 1.85.53 2.81.65A2 2 0 0 1 22 16.92z"></path>
+                </svg>
             </div>
 
             <div>
@@ -1353,7 +1351,7 @@ ul {
             </a>
 
             <a href="#" class="link-item">
-                政策法规
+                要闻摘报
             </a>
 
             <a href="#" class="link-item">
@@ -1429,47 +1427,29 @@ ul {
 
     <div class="container footer-main">
 
-        <div>
+        <div class="footer-brand">
 
-            <div class="footer-title">
-                中共四川职业技术学院纪律检查委员会办公室、监察处
+            <div class="footer-title">中共四川职业技术学院<br>纪律检查委员会办公室、监察处</div>
+
+            <div class="footer-contact">
+                <p><span class="c-label">地址</span>四川省遂宁市船山区学府北路1号</p>
+                <p><span class="c-label">电话</span>0825-2290035</p>
+                <p><span class="c-label">技术支持</span>信息化中心</p>
             </div>
 
-            <p>
-                主办单位：中共四川职业技术学院纪律检查委员会办公室、监察处
-            </p>
-
-            <p>
-                地址：××省××市××路××号
-            </p>
-
         </div>
 
-
-        <div class="footer-right">
-
-            <p>
-                网站标识码：0000000000
-            </p>
-
-            <p>
-                ICP备案编号：××××××××号
-            </p>
-
-            <p>
-                联系电话：0000-0000000
-            </p>
-
+        <div class="footer-links">
+            <div class="footer-col-title">快速链接</div>
+            <a href="#">中央纪委国家监察</a>
+            <a href="#">中共四川省纪委 四川监察委员会</a>
+            <a href="#">中共遂宁市纪委 遂宁监察委员会</a>
+            <a href="#">四川职业技术学院</a>
         </div>
 
     </div>
 
-
-    <div class="footer-bottom">
-
-        版权所有 ? 2026 中共四川职业技术学院纪律检查委员会办公室、监察处
-
-    </div>
+    <div class="footer-bottom">版权所有 2026 中共四川职业技术学院纪律检查委员会办公室、监察处</div>
 
 </footer>
 
