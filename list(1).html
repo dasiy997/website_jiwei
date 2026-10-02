@@ -339,6 +339,7 @@ ul {
     min-height: 72px;
     display: flex;
     align-items: center;
+    gap: 14px;
     border-bottom: 1px dashed #e4e8ef;}
 
 .news-item:last-child {
@@ -347,8 +348,9 @@ ul {
 .news-item a {
     flex: 1;
     min-width: 0;
-    display: flex;
+    display: flex !important;
     align-items: center;
+    overflow: hidden;
     color: #2c3a52;
     font-size: 17px;}
 
@@ -362,6 +364,7 @@ ul {
     flex-shrink: 0;}
 
 .news-title {
+    min-width: 0;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;}
@@ -372,10 +375,10 @@ ul {
 .news-date {
     width: 105px;
     flex-shrink: 0;
-    margin-left: 20px;
     text-align: right;
     color: #7890b2;
-    font-size: 15px;}
+    font-size: 15px;
+    white-space: nowrap;}
 
 .news-item.top .news-title {
     color: #073b85;
@@ -383,6 +386,8 @@ ul {
 
 .top-label {
     display: inline-flex;
+    flex: 0 0 auto;
+    min-width: 36px;
     height: 22px;
     padding: 0 7px;
     margin-right: 8px;
@@ -390,39 +395,115 @@ ul {
     justify-content: center;
     background: #b84a4a;
     color: #fff;
-    font-size: 12px;}
+    font-size: 12px;
+    white-space: nowrap;}
 
-.pagination {
-    padding: 24px 30px 28px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+/* ===== 翻页统一样式：同时兼容 .pagination 与 CMS 的 pb_sys_* 输出 ===== */
+.pagination,
+.pb_sys_common.pb_sys_normal.pb_sys_style1 {
+    display: flex !important;
     flex-wrap: wrap;
-    gap: 8px;
-    border-top: 1px solid #e7eef8;}
+    justify-content: center;
+    align-items: center;
+    gap: 8px !important;
+    padding: 24px 30px 28px !important;
+    border-top: 1px solid #e7eef8 !important;   /* 只保留顶部一条分隔线 */
+    border-left: none !important;
+    border-right: none !important;
+    border-bottom: none !important;
+    text-align: center !important;
+    background: none !important;}
 
-.pagination a,
-.pagination span {
-    min-width: 34px;
-    height: 34px;
-    padding: 0 10px;
-    display: flex;
+/* 兼容 CMS 可能用 <ul><li> 包裹页码的情况，避免竖排/项目符号 */
+.pagination ul,
+.pb_sys_common.pb_sys_normal.pb_sys_style1 ul {
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: contents;}
+
+.pagination li,
+.pb_sys_common.pb_sys_normal.pb_sys_style1 li {
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: inline-flex;
+    border: none !important;
+    background: none !important;}
+
+/* CMS 会用多层 span 包裹链接；包裹层本身不画边框 */
+.pagination span,
+.pb_sys_common.pb_sys_normal.pb_sys_style1 span {
+    min-width: 0 !important;
+    height: auto !important;
+    padding: 0 !important;
+    border: none !important;
+    background: none !important;
+    box-sizing: border-box !important;}
+
+.pagination .p_pages,
+.pb_sys_common.pb_sys_normal.pb_sys_style1 .p_pages {
+    width: 100% !important;
+    display: inline-flex !important;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    border: 1px solid #c9daf2;
-    background: #fff;
-    color: #416394;
-    font-size: 14px;}
+    gap: 8px !important;}
+
+/* 每个真正的页码 / 按钮 */
+.pagination a,
+.pagination li a,
+.pb_sys_common.pb_sys_normal.pb_sys_style1 a,
+.pb_sys_common.pb_sys_normal.pb_sys_style1 li a,
+.pagination .active,
+.pagination .current,
+.pagination .disabled,
+.pagination .nolink,
+.pagination .thisclass,
+.pagination .p_no_d,
+.pb_sys_common.pb_sys_normal.pb_sys_style1 .active,
+.pb_sys_common.pb_sys_normal.pb_sys_style1 .current,
+.pb_sys_common.pb_sys_normal.pb_sys_style1 .disabled,
+.pb_sys_common.pb_sys_normal.pb_sys_style1 .nolink,
+.pb_sys_common.pb_sys_normal.pb_sys_style1 .thisclass,
+.pb_sys_common.pb_sys_normal.pb_sys_style1 .p_no_d {
+    min-width: 34px !important;
+    height: 34px !important;
+    padding: 0 10px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border: 1px solid #c9daf2 !important;
+    background: #fff !important;
+    color: #416394 !important;
+    font-size: 14px !important;
+    text-decoration: none !important;
+    box-sizing: border-box !important;}
 
 .pagination a:hover,
-.pagination .active {
-    border-color: #0b4ea2;
-    background: #0b4ea2;
-    color: #fff;}
+.pb_sys_common.pb_sys_normal.pb_sys_style1 a:hover,
+.pagination .active,
+.pb_sys_common.pb_sys_normal.pb_sys_style1 .active,
+.pagination .current,
+.pb_sys_common.pb_sys_normal.pb_sys_style1 .current,
+.pagination .p_no_d,
+.pb_sys_common.pb_sys_normal.pb_sys_style1 .p_no_d {
+    border-color: #0b4ea2 !important;
+    background: #0b4ea2 !important;
+    color: #fff !important;}
 
-.pagination .disabled {
-    color: #9aabc4;
-    background: #f6fbff;}
+.pagination .disabled,
+.pb_sys_common.pb_sys_normal.pb_sys_style1 .disabled,
+.pagination .nolink,
+.pb_sys_common.pb_sys_normal.pb_sys_style1 .nolink {
+    color: #9aabc4 !important;
+    background: #f6fbff !important;
+    cursor: default !important;}
+
+.pagination span:empty,
+.pb_sys_common.pb_sys_normal.pb_sys_style1 span:empty,
+.pb_sys_common.pb_sys_normal.pb_sys_style1 li span:empty {
+    display: none !important;}
 
 .list-footer {
     padding: 0 30px 22px;
@@ -639,7 +720,7 @@ ul {
 
     .news-date {
         width: auto;
-        margin-left: 18px;
+        margin-left: 20px;
         text-align: left;
         font-size: 14px;}
 
@@ -682,7 +763,7 @@ ul {
         <div class="search-box">
             <input type="text" placeholder="请输入关键词搜索">
             <button aria-label="搜索">
-                <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+                <svg class="icon-svg" viewbox="0 0 24 24" aria-hidden="true">
                     <circle cx="11" cy="11" r="7"></circle>
                     <path d="m16 16 4 4"></path>
                 </svg>
@@ -694,13 +775,33 @@ ul {
     <nav class="nav">
         <div class="container">
             <ul>
-                <li><a href="#">首页</a></li>
-                <li><a href="#" class="active">新闻公告</a></li>
-                <li><a href="#">重要通知</a></li>
-                <li><a href="#">要闻摘报</a></li>
-                <li><a href="#">警示教育</a></li>
-                <li><a href="#">规章制度</a></li>
-                <li><a href="#">监督举报</a></li>
+                <li>
+                    <a href="/system/go.jsp?treeid=1001&apptype=index&urltype=tree.TreeTempUrl" class="active" target="">首页</a>
+                </li>
+
+                <li>
+                    <a href="/system/go.jsp?treeid=1003&apptype=treetemp&urltype=tree.TreeTempUrl" target="">新闻公告</a>
+                </li>
+
+                <li>
+                    <a href="/system/go.jsp?treeid=1002&apptype=treetemp&urltype=tree.TreeTempUrl" target="">重要通知</a>
+                </li>
+
+                <li>
+                    <a href="/system/go.jsp?treeid=1017&apptype=treetemp&urltype=tree.TreeTempUrl" target="">要闻摘报</a>
+                </li>
+
+                <li>
+                    <a href="/system/go.jsp?treeid=1039&apptype=treetemp&urltype=tree.TreeTempUrl" target="">警示教育</a>
+                </li>
+
+                <li>
+                    <a href="/system/linkcolumn.jsp?urltype=tree.TreeTempUrl&column=xgbxx/gzzd" target="">规章制度</a>
+                </li>
+
+                <li>
+                    <a href="/system/go.jsp?treeid=1019&apptype=treetemp&urltype=tree.TreeTempUrl" target="">监督举报</a>
+                </li>
             </ul>
         </div>
     </nav>
@@ -713,9 +814,9 @@ ul {
 
     <div class="breadcrumb">
         <a href="#">首页</a>
-        <span class="arrow">›</span>
+        <span class="arrow"></span>
         <a href="#">新闻公告</a>
-        <span class="arrow">›</span>
+        <span class="arrow"></span>
         <span>工作动态</span>
     </div>
 
@@ -724,115 +825,53 @@ ul {
         <aside class="sidebar-left">
 
             <div class="side-menu">
-                <div class="side-menu-title">
-                    <span></span>
-                    新闻公告
-                </div>
+                <div class="side-menu-title"><!--#begineditable name="栏目名称1" action="webber.wbst.com.nav.MenuAction" layout="/system/_component/sitenav/tplshowcolumnname.jsp" tpltype="1" contype="" clone="" viewid="204249" contentviewid="" tagname="栏目名称1"-->elementname<!--#endeditable--></div>
 
                 <ul>
-                    <li class="active"><a href="#">工作动态</a></li>
-                    <li><a href="#">重要通知</a></li>
-                    <li><a href="#">监督检查</a></li>
-                    <li><a href="#">审查调查</a></li>
-                    <li><a href="#">巡察工作</a></li>
-                    <li><a href="#">清廉校园</a></li>
+                    <li>
+                    <a href="/system/go.jsp?treeid=1001&apptype=index&urltype=tree.TreeTempUrl" class="active" target="">首页</a>
+                </li>
+
+                <li>
+                    <a href="/system/go.jsp?treeid=1003&apptype=treetemp&urltype=tree.TreeTempUrl" target="">新闻公告</a>
+                </li>
+
+                <li>
+                    <a href="/system/go.jsp?treeid=1002&apptype=treetemp&urltype=tree.TreeTempUrl" target="">重要通知</a>
+                </li>
+
+                <li>
+                    <a href="/system/go.jsp?treeid=1017&apptype=treetemp&urltype=tree.TreeTempUrl" target="">要闻摘报</a>
+                </li>
+
+                <li>
+                    <a href="/system/go.jsp?treeid=1039&apptype=treetemp&urltype=tree.TreeTempUrl" target="">警示教育</a>
+                </li>
+
+                <li>
+                    <a href="/system/linkcolumn.jsp?urltype=tree.TreeTempUrl&column=xgbxx/gzzd" target="">规章制度</a>
+                </li>
+
+               
                 </ul>
             </div>
 
             <div class="report-box">
                 <h3>监督举报</h3>
                 <p>坚持依规依纪依法受理信访举报，欢迎社会各界对相关问题进行监督。</p>
-                <a href="#" class="report-btn">进入举报方式</a>
+                <a href="/system/go.jsp?treeid=1019&apptype=treetemp&urltype=tree.TreeTempUrl" class="report-btn">进入举报方式</a>
             </div>
 
         </aside>
 
         <section class="content-main">
+            
 
             <div class="list-header">
-                <div class="list-header-title">工作动态</div>
+                <div class="list-header-title"><!--#begineditable name="栏目名称" action="webber.wbst.com.nav.MenuAction" layout="/system/_component/sitenav/tplshowcolumnname.jsp" tpltype="1" contype="" clone="" viewid="204248" contentviewid="" tagname="栏目名称"-->elementname<!--#endeditable--></div>
                 <a href="#" class="list-header-more">首页 &gt; 新闻公告 &gt; 工作动态</a>
             </div>
-
-            <ul class="article-list">
-
-                <li class="news-item top">
-                    <a href="#">
-                        <span class="top-label">置顶</span>
-                        <span class="news-title">学校召开党风廉政建设专题会议</span>
-                    </a>
-                    <span class="news-date">2026-09-29</span>
-                </li>
-
-                <li class="news-item">
-                    <a href="#"><span class="news-title">学校召开全面从严治党工作专题会议</span></a>
-                    <span class="news-date">2026-09-27</span>
-                </li>
-
-                <li class="news-item">
-                    <a href="#"><span class="news-title">纪委开展重点领域监督检查工作</span></a>
-                    <span class="news-date">2026-09-25</span>
-                </li>
-
-                <li class="news-item">
-                    <a href="#"><span class="news-title">学校开展廉政警示教育专题活动</span></a>
-                    <span class="news-date">2026-09-23</span>
-                </li>
-
-                <li class="news-item">
-                    <a href="#"><span class="news-title">纪委召开监督工作专题会议</span></a>
-                    <span class="news-date">2026-09-20</span>
-                </li>
-
-                <li class="news-item">
-                    <a href="#"><span class="news-title">持续推进清廉校园建设走深走实</span></a>
-                    <span class="news-date">2026-09-18</span>
-                </li>
-
-                <li class="news-item">
-                    <a href="#"><span class="news-title">开展新学期廉洁教育专题学习</span></a>
-                    <span class="news-date">2026-09-15</span>
-                </li>
-
-                <li class="news-item">
-                    <a href="#"><span class="news-title">纪委深入基层开展党风廉政建设调研</span></a>
-                    <span class="news-date">2026-09-12</span>
-                </li>
-
-                <li class="news-item">
-                    <a href="#"><span class="news-title">强化日常监督 推动监督责任落实</span></a>
-                    <span class="news-date">2026-09-10</span>
-                </li>
-
-                <li class="news-item">
-                    <a href="#"><span class="news-title">学校召开廉政风险防控工作推进会</span></a>
-                    <span class="news-date">2026-09-08</span>
-                </li>
-
-                <li class="news-item">
-                    <a href="#"><span class="news-title">认真学习贯彻党风廉政建设有关要求</span></a>
-                    <span class="news-date">2026-09-05</span>
-                </li>
-
-                <li class="news-item">
-                    <a href="#"><span class="news-title">推进清廉文化建设 营造崇廉尚洁氛围</span></a>
-                    <span class="news-date">2026-09-02</span>
-                </li>
-
-            </ul>
-
-            <div class="pagination">
-                <span class="disabled">上一页</span>
-                <a href="#" class="active">1</a>
-                <a href="#">2</a>
-                <a href="#">3</a>
-                <a href="#">4</a>
-                <a href="#">5</a>
-                <a href="#">下一页</a>
-            </div>
-
-            <div class="list-footer">共 56 条记录　当前第 1 / 5 页</div>
-
+<div><!--#begineditable name="翻页标题列表" action="webber.wbst.com.news.ColumnNews" layout="/system/_component/news/list/tplpagedown.jsp" tpltype="1" contype="news" clone="" viewid="204253" contentviewid="" tagname="翻页标题列表"-->elementname<!--#endeditable--></div>
         </section>
 
     </div>
