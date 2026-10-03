@@ -581,47 +581,84 @@ ul {
 
 .report-section {
     margin-top: 25px;
-    background: linear-gradient(
-        135deg,
-        #fff,
-        #eef6ff
-    );
-    border: 1px solid #c9daf2;}
+    background: linear-gradient(135deg, #fff, #eef6ff);
+    border: 1px solid #c9daf2;
+    box-shadow: 0 6px 22px rgba(16,57,112,.06);}
 
-.report-inner {
-    display: grid;
-    grid-template-columns: 1.1fr 1fr 1fr;
-    padding: 22px;
-    gap: 25px;}
+.report-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 20px 24px 14px;
+    border-bottom: 2px solid #0b4ea2;}
 
-.report-intro {
-    border-right: 1px solid #eee;}
+.report-header .title-left {
+    display: flex;
+    align-items: center;}
 
-.report-intro h3 {
-    color: #073b85;
+.report-header .red-line {
+    width: 6px;
+    height: 28px;
+    background: #c76a6a;
+    margin-right: 10px;}
+
+.report-header h3 {
     font-family: "Microsoft YaHei", "微软雅黑", sans-serif;
-    font-size: 25px;
-    margin-bottom: 7px;}
+    font-size: 24px;
+    color: #073b85;}
 
-.report-intro p {
+.report-header p {
     color: #4d5e78;
-    font-size: 16px;}
+    font-size: 15px;
+    margin-top: 5px;}
 
-.report-box {
+.report-header .more {
+    font-size: 15px;
+    color: #416394;
+    white-space: nowrap;}
+
+.report-header .more:hover {
+    color: #b84a4a;}
+
+.report-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 24px;}
+
+.report-card {
+    background: #fff;
+    border: 1px solid #d6e2f3;
+    border-radius: 10px;
+    padding: 22px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    transition: .25s;}
+
+.report-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 26px rgba(16,57,112,.12);
+    border-color: #0b4ea2;}
+
+.report-card-top {
     display: flex;
     align-items: center;
-    gap: 15px;}
+    gap: 14px;
+    margin-bottom: 14px;}
 
 .report-icon {
     width: 52px;
     height: 52px;
     border-radius: 50%;
-    background: #b84a4a;
+    background: linear-gradient(135deg, #b84a4a, #d47a7a);
     color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 23px;}
+    font-size: 24px;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(184,74,74,.25);}
 
 .icon-svg {
     width: 1em;
@@ -633,13 +670,35 @@ ul {
     stroke-linecap: round;
     stroke-linejoin: round;}
 
-.report-box h4 {
+.report-card h4 {
     color: #073b85;
-    font-size: 18px;}
+    font-size: 19px;
+    font-family: "Microsoft YaHei", "微软雅黑", sans-serif;}
 
-.report-box p {
-    font-size: 16px;
-    color: #4d5e78;}
+.report-card .report-tag {
+    font-size: 13px;
+    color: #9aabc4;
+    margin-top: 2px;}
+
+.report-card .report-detail {
+    font-size: 15.5px;
+    color: #43526b;
+    line-height: 1.85;
+    border-top: 1px dashed #e3eaf4;
+    padding-top: 12px;}
+
+.report-card .report-detail .label {
+    color: #073b85;
+    font-weight: 600;}
+
+.report-card .report-detail .hot {
+    color: #b84a4a;
+    font-size: 18px;
+    font-weight: 700;
+    text-decoration: none;}
+
+.report-card .report-detail .hot:hover {
+    text-decoration: underline;}
 
 /* =========================
    快速导航 + 下载
@@ -847,7 +906,7 @@ ul {
 
     .warning-content,
     .rules-content,
-    .report-inner {
+    .report-grid {
         grid-template-columns: 1fr;}
 
     .rules-card {
@@ -861,10 +920,10 @@ ul {
         border-top: 1px solid #e4edf8;
         padding-top: 18px;}
 
-    .report-intro {
-        border-right: none;
-        border-bottom: 1px solid #eee;
-        padding-bottom: 15px;}
+    .report-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;}
 
     .focus-news {
         grid-template-columns: 1fr;
@@ -945,25 +1004,7 @@ ul {
 
 <body>
 
-<!-- =========================
-     顶部信息
-========================= -->
 
-<div class="top-bar">
-    <div class="container">
-        <div class="top-left">
-            <span>首页</span>
-            <span>设为首页</span>
-            <span>加入收藏</span>
-        </div>
-
-        <div class="top-right">
-            <a href="#">无障碍浏览</a>
-            <a href="#">网站地图</a>
-            <a href="#">联系我们</a>
-        </div>
-    </div>
-</div>
 
 
 <!-- =========================
@@ -1007,7 +1048,7 @@ ul {
             <ul>
 
                 <li>
-                    <a href="/system/go.jsp?treeid=1001&apptype=index&urltype=tree.TreeTempUrl" class="active" target="">首页</a>
+                    <a href="/system/go.jsp?treeid=1001&apptype=index&urltype=tree.TreeTempUrl" target="">首页</a>
                 </li>
 
                 <li>
@@ -1262,49 +1303,105 @@ ul {
 
 <section class="report-section">
 
-    <div class="report-inner">
+    <div class="report-header">
+
+        <div>
+            <div class="title-left">
+                <span class="red-line"></span>
+                <h3>监督举报</h3>
+            </div>
+            <p>坚持依规依纪依法受理信访举报，欢迎社会各界对相关问题进行监督。</p>
+        </div>
+
+        <a href="/system/go.jsp?treeid=1019&apptype=treetemp&urltype=tree.TreeTempUrl" class="more" target=""><p>举报须知 →</p></a>
+
+    </div>
 
 
-        <div class="report-intro">
+    <div class="report-grid">
 
-            <h3>监督举报</h3>
 
-            <p>
-                坚持依规依纪依法受理信访举报，
-                欢迎社会各界对相关问题进行监督。
-            </p>
+        <!-- 来人举报 -->
+
+        <div class="report-card">
+
+            <div class="report-card-top">
+
+                <div class="report-icon">
+                    <svg class="icon-svg" viewbox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 21s-7-5.2-7-11a7 7 0 0 1 14 0c0 5.8-7 11-7 11z"></path>
+                        <circle cx="12" cy="10" r="2.6"></circle>
+                    </svg>
+                </div>
+
+                <div>
+                    <h4>来人举报</h4>
+                    <div class="report-tag">现场来访接待</div>
+                </div>
+
+            </div>
+
+            <div class="report-detail">
+                <span class="label">接待地址：</span><br>
+                四川省遂宁市船山区学府北路1号<br>
+                四川职业技术学院纪委办公室211室
+            </div>
 
         </div>
 
 
-        <div class="report-box">
+        <!-- 信件举报 -->
 
-            <div class="report-icon">
-                <svg class="icon-svg" viewbox="0 0 24 24" aria-hidden="true">
-                    <path d="M4 6h16v12H4z"></path>
-                    <path d="m4 7 8 6 8-6"></path>
-                </svg>
+        <div class="report-card">
+
+            <div class="report-card-top">
+
+                <div class="report-icon">
+                    <svg class="icon-svg" viewbox="0 0 24 24" aria-hidden="true">
+                        <path d="M4 6h16v12H4z"></path>
+                        <path d="m4 7 8 6 8-6"></path>
+                    </svg>
+                </div>
+
+                <div>
+                    <h4>信件举报</h4>
+                    <div class="report-tag">邮寄信访材料</div>
+                </div>
+
             </div>
 
-            <div>
-                <h4><a href="/system/go.jsp?treeid=1019&apptype=treetemp&urltype=tree.TreeTempUrl" target="">来信举报</a></h4>
-                <p>请按照有关要求邮寄举报材料</p>
+            <div class="report-detail">
+                <span class="label">邮寄地址：</span><br>
+                四川省遂宁市船山区学府北路1号<br>
+                四川职业技术学院纪委办公室<br>
+                <span class="label">邮编：</span><span class="hot">629000</span>
             </div>
 
         </div>
 
 
-        <div class="report-box">
+        <!-- 电话举报 -->
 
-            <div class="report-icon">
-                <svg class="icon-svg" viewbox="0 0 24 24" aria-hidden="true">
-                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.4 19.4 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.96.34 1.9.65 2.81a2 2 0 0 1-.45 2.11L8.04 9.91a16 16 0 0 0 6.05 6.05l1.27-1.27a2 2 0 0 1 2.11-.45c.91.31 1.85.53 2.81.65A2 2 0 0 1 22 16.92z"></path>
-                </svg>
+        <div class="report-card">
+
+            <div class="report-card-top">
+
+                <div class="report-icon">
+                    <svg class="icon-svg" viewbox="0 0 24 24" aria-hidden="true">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.4 19.4 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.96.34 1.9.65 2.81a2 2 0 0 1-.45 2.11L8.04 9.91a16 16 0 0 0 6.05 6.05l1.27-1.27a2 2 0 0 1 2.11-.45c.91.31 1.85.53 2.81.65A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
+                </div>
+
+                <div>
+                    <h4>电话举报</h4>
+                    <div class="report-tag">举报专线</div>
+                </div>
+
             </div>
 
-            <div>
-                <h4><a>电话举报</a></h4>
-                <p>监督举报电话：12388</p>
+            <div class="report-detail">
+                <span class="label">举报电话：</span><br>
+                <a class="hot" href="tel:0825-2312388">0825-2312388</a>
             </div>
 
         </div>
@@ -1402,7 +1499,7 @@ ul {
 
         <div class="footer-brand">
 
-            <div class="footer-title">中共四川职业技术学院<br>纪律检查委员会办公室、监察处</div>
+            <div class="footer-title">中共四川职业技术学院纪律检查委员会办公室、监察处</div>
 
             <div class="footer-contact">
                 <p><span class="c-label">地址</span>四川省遂宁市船山区学府北路1号</p>
@@ -1414,15 +1511,15 @@ ul {
 
         <div class="footer-links">
             <div class="footer-col-title">快速链接</div>
-            <a href="#">中央纪委国家监察</a>
-            <a href="#">中共四川省纪委 四川监察委员会</a>
-            <a href="#">中共遂宁市纪委 遂宁监察委员会</a>
-            <a href="#">四川职业技术学院</a>
+            <a href="https://www.ccdi.gov.cn/">中央纪委国家监察</a>
+            <a href="https://www.scjc.gov.cn/">中共四川省纪委 四川监察委员会</a>
+            <a href="https://www.sjc.gov.cn/">中共遂宁市纪委 遂宁监察委员会</a>
+            <a href="https://www.scvtc.edu.cn/">四川职业技术学院</a>
         </div>
 
     </div>
 
-    <div class="footer-bottom">版权所有 2026 中共四川职业技术学院纪律检查委员会办公室、监察处</div>
+    <div class="footer-bottom">版权所有@2026 中共四川职业技术学院纪律检查委员会办公室、监察处</div>
 
 </footer>
 

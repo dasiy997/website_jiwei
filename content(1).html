@@ -3,7 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>内容页 - 中共四川职业技术学院纪律检查委员会办公室、监察处</title>
+<!-- Font Awesome 图标库 - 更稳定的图标解决方案 -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<title>中共四川职业技术学院纪律检查委员会办公室、监察处</title>
 
 <style>
 * {
@@ -39,28 +41,6 @@ ul {
 .container {
     width: 1200px;
     margin: 0 auto;}
-
-.top-bar {
-    height: 40px;
-    background: #f7fbff;
-    color: #12336f;
-    font-size: 15px;
-    border-bottom: 1px solid #d8e5f7;}
-
-.top-bar .container {
-    height: 38px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;}
-
-.top-left span {
-    margin-right: 22px;}
-
-.top-right a {
-    margin-left: 20px;}
-
-.top-right a:hover {
-    color: #b84a4a;}
 
 .header {
     background:
@@ -299,14 +279,26 @@ ul {
     margin: 0 10px;}
 
 .article-body {
-    padding: 38px 58px 44px;
-    font-size: 17px;
+    padding: 38px 58px 24px;
+    font-size: 17px !important;
+    font-family: "Microsoft YaHei", "微软雅黑", "PingFang SC", "Noto Sans SC", Arial, sans-serif !important;
     line-height: 2.05;
     color: #2c3a52;}
+
+/* 锁死正文内所有元素的字体与字号，全部统一为正文字号，防止编辑器/内联样式篡改 */
+.article-body * {
+    font-family: inherit !important;
+    font-size: inherit !important;}
 
 .article-body p {
     margin-bottom: 20px;
     text-indent: 2em;}
+
+/* 去掉空行：隐藏纯空白的段落/区块 */
+.article-body p:empty,
+.article-body div:empty,
+.article-body span:empty {
+    display: none !important;}
 
 .article-body h2 {
     margin: 30px 0 16px;
@@ -567,7 +559,7 @@ ul {
         margin: 2px 8px;}
 
     .article-body {
-        padding: 28px 24px 34px;
+        padding: 28px 24px 22px;
         font-size: 16px;}
 
     .attachments {
@@ -591,9 +583,6 @@ ul {
 
 @media (max-width: 600px) {
 
-    .top-bar {
-        display: none;}
-
     .logo-title h1 {
         font-size: 19px;
         white-space: normal;}
@@ -616,7 +605,7 @@ ul {
         font-size: 15px;}
 
     .article-body {
-        padding: 24px 18px 28px;
+        padding: 24px 18px 18px;
         font-size: 15px;}
 
     .article-body p {
@@ -633,21 +622,6 @@ ul {
 
 <body>
 
-<div class="top-bar">
-    <div class="container">
-        <div class="top-left">
-            <span>首页</span>
-            <span>设为首页</span>
-            <span>加入收藏</span>
-        </div>
-
-        <div class="top-right">
-            <a href="#">无障碍浏览</a>
-            <a href="#">网站地图</a>
-            <a href="#">联系我们</a>
-        </div>
-    </div>
-</div>
 
 <header class="header">
 
@@ -677,7 +651,7 @@ ul {
         <div class="container">
             <ul>
                 <li>
-                    <a href="/system/go.jsp?treeid=1001&apptype=index&urltype=tree.TreeTempUrl" class="active" target="">首页</a>
+                    <a href="/system/go.jsp?treeid=1001&apptype=index&urltype=tree.TreeTempUrl" target="">首页</a>
                 </li>
 
                 <li>
@@ -713,13 +687,7 @@ ul {
 
 <div class="container">
 
-    <div class="breadcrumb">
-        <a href="#">首页</a>
-        <span class="arrow"></span>
-        <a href="#">新闻公告</a>
-        <span class="arrow"></span>
-        <span>工作动态</span>
-    </div>
+    <div class="breadcrumb"><!--#begineditable name="当前位置" action="webber.wbst.com.util.SitelinkAction" layout="/system/_component/sitenav/tplcurposition.jsp" tpltype="1" contype="" clone="" viewid="204262" contentviewid="" tagname="当前位置"-->elementname<!--#endeditable--></div>
 
     <div class="content-wrap">
 
@@ -731,8 +699,7 @@ ul {
                     新闻公告
                 </div>
 
-                <ul>
-                 <li>
+                <ul><li>
                     <a href="/system/go.jsp?treeid=1001&apptype=index&urltype=tree.TreeTempUrl" class="active" target="">首页</a>
                 </li>
 
@@ -754,10 +721,7 @@ ul {
 
                 <li>
                     <a href="/system/linkcolumn.jsp?urltype=tree.TreeTempUrl&column=xgbxx/gzzd" target="">规章制度</a>
-                </li>
-
-
-                </ul>
+                </li></ul>
             </div>
 
             <div class="report-box">
@@ -782,8 +746,8 @@ ul {
             <div class="article-body"><!--#begineditable name="文章内容" action="webber.wbst.com.news.DetailNews" layout="/system/_component/news/content/tpltitle.jsp" tpltype="1" contype="" clone="" viewid="204255" contentviewid="" tagname="文章内容"-->elementname<!--#endeditable--></div>
             
             <div class="article-page">
-                <p><a><!--#begineditable name="上一篇" action="webber.wbst.com.news.DetailNews" layout="/system/_component/news/content/tpltitle.jsp" tpltype="1" contype="" clone="" viewid="204256" contentviewid="" tagname="上一篇"-->elementname<!--#endeditable--></a></p>
-                <p><a><!--#begineditable name="下一篇" action="webber.wbst.com.news.DetailNews" layout="/system/_component/news/content/tpltitle.jsp" tpltype="1" contype="" clone="" viewid="204257" contentviewid="" tagname="下一篇"-->elementname<!--#endeditable--></a></p>
+                <p><!--#begineditable name="上一篇" action="webber.wbst.com.news.DetailNews" layout="/system/_component/news/content/tpltitle.jsp" tpltype="1" contype="" clone="" viewid="204256" contentviewid="" tagname="上一篇"-->elementname<!--#endeditable--></p>
+                <p><!--#begineditable name="下一篇" action="webber.wbst.com.news.DetailNews" layout="/system/_component/news/content/tpltitle.jsp" tpltype="1" contype="" clone="" viewid="204257" contentviewid="" tagname="下一篇"-->elementname<!--#endeditable--></p>
             </div>
 
         </article>
@@ -794,31 +758,37 @@ ul {
 
 </main>
 
+<!-- =========================
+     页脚
+========================= -->
+
 <footer class="footer">
 
     <div class="container footer-main">
 
         <div class="footer-brand">
-            <div class="footer-title">中共四川职业技术学院<br>纪律检查委员会办公室、监察处</div>
+
+            <div class="footer-title">中共四川职业技术学院纪律检查委员会办公室、监察处</div>
 
             <div class="footer-contact">
                 <p><span class="c-label">地址</span>四川省遂宁市船山区学府北路1号</p>
                 <p><span class="c-label">电话</span>0825-2290035</p>
                 <p><span class="c-label">技术支持</span>信息化中心</p>
             </div>
+
         </div>
 
         <div class="footer-links">
             <div class="footer-col-title">快速链接</div>
-            <a href="#">中央纪委国家监察</a>
-            <a href="#">中共四川省纪委 四川监察委员会</a>
-            <a href="#">中共遂宁市纪委 遂宁监察委员会</a>
-            <a href="#">四川职业技术学院</a>
+            <a href="https://www.ccdi.gov.cn/">中央纪委国家监察</a>
+            <a href="https://www.scjc.gov.cn/">中共四川省纪委 四川监察委员会</a>
+            <a href="https://www.sjc.gov.cn/">中共遂宁市纪委 遂宁监察委员会</a>
+            <a href="https://www.scvtc.edu.cn/">四川职业技术学院</a>
         </div>
 
     </div>
 
-    <div class="footer-bottom">版权所有 2026 中共四川职业技术学院纪律检查委员会办公室、监察处</div>
+    <div class="footer-bottom">版权所有@2026 中共四川职业技术学院纪律检查委员会办公室、监察处</div>
 
 </footer>
 
@@ -842,30 +812,29 @@ backTop.addEventListener("click", function () {
     });
 });
 
-document.querySelector(".search-box button")
-.addEventListener("click", function () {
-    const keyword =
-        document.querySelector(".search-box input").value.trim();
+/* 文章内容：去掉空行（仅删空白行，保留空格与图片） */
+(function () {
+    var body = document.querySelector(".article-body");
+    if (!body) return;
 
-    if (!keyword) {
-        alert("请输入搜索关键词");
-        return;
-    }
+    // 只处理正文容器下的直接子块级元素，避免误删段落内的空格
+    Array.prototype.forEach.call(body.children, function (el) {
+        var tag = el.tagName;
+        if (tag !== "P" && tag !== "DIV") return;
 
-    alert("搜索关键词：" + keyword);
-});
+        // 含图片/链接/媒体/列表/表格的整块一律保留，绝不删除
+        if (el.querySelector("img, a, figure, table, ul, ol, iframe, video")) return;
 
-document.querySelectorAll(".nav a").forEach(function (item) {
-    item.addEventListener("click", function () {
-        document
-            .querySelectorAll(".nav a")
-            .forEach(function (nav) {
-                nav.classList.remove("active");
-            });
+        // 内容全是空白或 &nbsp;（含仅含 <br> 的空行）才算空行，予以删除
+        var text = (el.textContent || "")
+            .replace(/\u00a0/g, "")
+            .replace(/\s/g, "");
 
-        this.classList.add("active");
+        if (text === "") {
+            el.remove();
+        }
     });
-});
+}());
 </script>
 
 </body>
