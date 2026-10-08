@@ -42,6 +42,36 @@ ul {
     width: 1200px;
     margin: 0 auto;}
 
+.top-bar {
+    height: 44px;
+    background: #f7fbff;
+    color: #12336f;
+    font-size: 14px;
+    border-bottom: 1px solid #d8e5f7;}
+
+.top-bar .container {
+    height: 44px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-content: space-between;}
+
+.top-left {
+    flex: 1;
+    min-width: 0;}
+
+.top-left span {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;}
+
+.top-right a {
+    margin-left: 20px;}
+
+.top-right a:hover {
+    color: #b84a4a;}
+
 .header {
     background:
         linear-gradient(180deg, rgba(255,255,255,.96), rgba(226,238,252,.92)),
@@ -50,27 +80,30 @@ ul {
     color: #06256a;}
 
 .header-main {
-    height: 148px;
+    min-height: 142px;
+    padding: 22px 0;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 18px;}
+    justify-content: center;
+    gap: 0;}
 
 .logo-area {
     display: flex;
     align-items: center;
-    flex: 1;
-    min-width: 0;}
+    justify-content: flex-start;
+    width: 100%;
+    min-width: 0;
+    text-align: left;}
 
 .logo-img {
-    width: 78px;
-    height: 78px;
+    width: 84px;
+    height: 84px;
     object-fit: contain;
     margin-right: 22px;
     flex-shrink: 0;}
 
 .logo-title h1 {
-    font-size: min(30px, max(18px, calc(3.9vw - 17px)));
+    font-size: 38px;
     font-weight: bold;
     letter-spacing: 0;
     color: #06256a;
@@ -78,25 +111,27 @@ ul {
     white-space: nowrap;}
 
 .search-box {
-    width: 300px;
-    height: 40px;
+    width: 226px;
+    height: 32px;
+    flex-shrink: 0;
     display: flex;
     background: #fff;
     border: 1px solid #91add7;
-    border-radius: 20px;
-    overflow: hidden;}
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(16,57,112,.06);}
 
 .search-box input {
     flex: 1;
     border: none;
     outline: none;
-    padding: 0 14px;
+    padding: 0 12px;
     color: #555;
-    font-size: 16px;
+    font-size: 14px;
     font-family: inherit;}
 
 .search-box button {
-    width: 52px;
+    width: 42px;
     border: none;
     background: #0b4ea2;
     color: #fff;
@@ -495,6 +530,9 @@ ul {
 @media (max-width: 1250px) {
     .container {
         width: 94%;}
+
+    .logo-title h1 {
+        font-size: 34px;}
 }
 
 @media (max-width: 900px) {
@@ -502,18 +540,16 @@ ul {
     .header-main {
         height: auto;
         padding: 20px 0;
-        flex-direction: column;
-        gap: 18px;
-        align-items: stretch;}
+        align-items: center;}
 
     .logo-area {
-        align-items: flex-start;}
+        align-items: center;}
 
     .logo-title h1 {
-        font-size: min(26px, max(15px, calc(3.9vw - 5px)));}
+        font-size: min(30px, max(19px, calc(3.2vw)));}
 
-    .search-box {
-        width: 100%;}
+    .top-bar .search-box {
+        width: 210px;}
 
     .nav {
         overflow-x: auto;}
@@ -583,6 +619,21 @@ ul {
 
 @media (max-width: 600px) {
 
+    .top-bar {
+        display: block;
+        height: 46px;}
+
+    .top-bar .container {
+        height: 46px;
+        gap: 10px;}
+
+    .top-left span {
+        font-size: 12px;}
+
+    .top-bar .search-box {
+        width: 160px;
+        height: 30px;}
+
     .logo-title h1 {
         font-size: 19px;
         white-space: normal;}
@@ -625,6 +676,24 @@ ul {
 
 <header class="header">
 
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-left">
+                <span>欢迎访问四川职业技术学院纪委办公室、监察处网站</span>
+            </div>
+
+            <div class="search-box">
+                <input type="text" placeholder="请输入关键词搜索">
+                <button aria-label="搜索">
+                    <svg class="icon-svg" viewbox="0 0 24 24" aria-hidden="true">
+                        <circle cx="11" cy="11" r="7"></circle>
+                        <path d="m16 16 4 4"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
     <div class="container header-main">
 
         <div class="logo-area">
@@ -633,16 +702,6 @@ ul {
             <div class="logo-title">
                 <h1>中共四川职业技术学院纪律检查委员会办公室、监察处</h1>
             </div>
-        </div>
-
-        <div class="search-box">
-            <input type="text" placeholder="请输入关键词搜索">
-            <button aria-label="搜索">
-                <svg class="icon-svg" viewbox="0 0 24 24" aria-hidden="true">
-                    <circle cx="11" cy="11" r="7"></circle>
-                    <path d="m16 16 4 4"></path>
-                </svg>
-            </button>
         </div>
 
     </div>
@@ -725,7 +784,7 @@ ul {
             </div>
 
             <div class="report-box">
-                <h3>监督举报</h3>
+                <h3>举报方式</h3>
                 <p>坚持依规依纪依法受理信访举报，欢迎社会各界对相关问题进行监督。</p>
                 <a href="/system/go.jsp?treeid=1019&apptype=treetemp&urltype=tree.TreeTempUrl" class="report-btn">进入举报方式</a>
             </div>
