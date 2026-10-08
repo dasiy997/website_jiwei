@@ -48,20 +48,28 @@ ul {
 ========================= */
 
 .top-bar {
-    height: 40px;
+    height: 44px;
     background: #f7fbff;
     color: #12336f;
-    font-size: 15px;
+    font-size: 14px;
     border-bottom: 1px solid #d8e5f7;}
 
 .top-bar .container {
-    height: 38px;
+    height: 44px;
     display: flex;
     align-items: center;
+    gap: 20px;
     justify-content: space-between;}
 
+.top-left {
+    flex: 1;
+    min-width: 0;}
+
 .top-left span {
-    margin-right: 22px;}
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;}
 
 .top-right a {
     margin-left: 20px;}
@@ -81,21 +89,24 @@ ul {
     color: #06256a;}
 
 .header-main {
-    height: 148px;
+    min-height: 142px;
+    padding: 22px 0;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 18px;}
+    justify-content: center;
+    gap: 0;}
 
 .logo-area {
     display: flex;
     align-items: center;
-    flex: 1;
-    min-width: 0;}
+    justify-content: flex-start;
+    width: 100%;
+    min-width: 0;
+    text-align: left;}
 
 .logo-img {
-    width: 78px;
-    height: 78px;
+    width: 84px;
+    height: 84px;
     object-fit: contain;
     margin-right: 22px;
     flex-shrink: 0;}
@@ -125,8 +136,7 @@ ul {
     font-family: "Microsoft YaHei", "微软雅黑", sans-serif;}
 
 .logo-title h1 {
-    /* 宽屏固定 30px；窄屏按可用宽度自动收缩，保证不换行 */
-    font-size: min(30px, max(18px, calc(3.9vw - 17px)));
+    font-size: 38px;
     font-weight: bold;
     letter-spacing: 0;
     color: #06256a;
@@ -142,25 +152,27 @@ ul {
 /* 搜索 */
 
 .search-box {
-    width: 300px;
-    height: 40px;
+    width: 226px;
+    height: 32px;
+    flex-shrink: 0;
     display: flex;
     background: #fff;
     border: 1px solid #91add7;
-    border-radius: 20px;
-    overflow: hidden;}
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(16,57,112,.06);}
 
 .search-box input {
     flex: 1;
     border: none;
     outline: none;
-    padding: 0 14px;
+    padding: 0 12px;
     color: #555;
-    font-size: 16px;
+    font-size: 14px;
     font-family: inherit;}
 
 .search-box button {
-    width: 52px;
+    width: 42px;
     border: none;
     background: #0b4ea2;
     color: #fff;
@@ -258,7 +270,8 @@ ul {
     position: relative;
     z-index: 2;
     color: #fff;
-    text-align: left;}
+    text-align: center;
+    width: 100%;}
 
 .banner-content h2 {
     font-family: "Microsoft YaHei", "微软雅黑", sans-serif;
@@ -450,7 +463,7 @@ ul {
     margin-left: 10px;}
 
 /* =========================
-   三栏内容
+   专题栏目
 ========================= */
 
 .three-columns {
@@ -505,161 +518,6 @@ ul {
     color: #b84a4a;
     font-weight: bold;}
 
-/* =========================
-   规章制度（复用警示教育列表样式）
-========================= */
-
-.rules-section {
-    margin-top: 25px;
-    background: #fff;
-    border: 1px solid #d6e2f3;
-    box-shadow: 0 6px 22px rgba(16,57,112,.06);}
-
-/* 两个模块：取消卡片背景，仅用竖线分隔 */
-.rules-content {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0;
-    padding: 16px 20px 24px;}
-
-.rules-card {
-    padding: 4px 28px;
-    transition: none;}
-
-.rules-card:first-child {
-    padding-left: 0;}
-
-.rules-card:last-child {
-    border-left: 1px solid #e4edf8;
-    padding-right: 0;}
-
-.rules-card .section-title {
-    height: 52px;
-    margin-bottom: 6px;}
-
-.rules-list li {
-    display: flex;
-    align-items: center;
-    min-height: 46px;
-    padding: 6px 0;
-    border-bottom: 1px dashed #e9eef6;}
-
-.rules-list li:last-child {
-    border-bottom: none;}
-
-.rules-list a {
-    flex: 1;
-    min-width: 0;
-    display: flex;
-    align-items: center;
-    font-size: 17px;
-    color: #2c3a52;
-    transition: color .2s ease;}
-
-.rules-list a::before {
-    content: "";
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: #c76a6a;
-    flex-shrink: 0;
-    margin-right: 11px;}
-
-.rules-list a:hover {
-    color: #b84a4a;}
-
-.rules-list .date {
-    flex-shrink: 0;
-    margin-left: 14px;
-    color: #9aabc4;
-    font-size: 15px;
-    letter-spacing: .3px;}
-
-/* =========================
-   举报方式
-========================= */
-
-.report-section {
-    margin-top: 25px;
-    background: linear-gradient(135deg, #fff, #eef6ff);
-    border: 1px solid #c9daf2;
-    box-shadow: 0 6px 22px rgba(16,57,112,.06);}
-
-.report-header {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: 16px;
-    padding: 20px 24px 14px;
-    border-bottom: 2px solid #0b4ea2;}
-
-.report-header .title-left {
-    display: flex;
-    align-items: center;}
-
-.report-header .red-line {
-    width: 6px;
-    height: 28px;
-    background: #c76a6a;
-    margin-right: 10px;}
-
-.report-header h3 {
-    font-family: "Microsoft YaHei", "微软雅黑", sans-serif;
-    font-size: 24px;
-    color: #073b85;}
-
-.report-header p {
-    color: #4d5e78;
-    font-size: 15px;
-    margin-top: 5px;}
-
-.report-header .more {
-    font-size: 15px;
-    color: #416394;
-    white-space: nowrap;}
-
-.report-header .more:hover {
-    color: #b84a4a;}
-
-.report-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    padding: 24px;}
-
-.report-card {
-    background: #fff;
-    border: 1px solid #d6e2f3;
-    border-radius: 10px;
-    padding: 22px 20px 20px;
-    display: flex;
-    flex-direction: column;
-    transition: .25s;}
-
-.report-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 26px rgba(16,57,112,.12);
-    border-color: #0b4ea2;}
-
-.report-card-top {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    margin-bottom: 14px;}
-
-.report-icon {
-    width: 52px;
-    height: 52px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #b84a4a, #d47a7a);
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 24px;
-    flex-shrink: 0;
-    box-shadow: 0 4px 12px rgba(184,74,74,.25);}
-
 .icon-svg {
     width: 1em;
     height: 1em;
@@ -670,68 +528,52 @@ ul {
     stroke-linecap: round;
     stroke-linejoin: round;}
 
-.report-card h4 {
-    color: #073b85;
-    font-size: 19px;
-    font-family: "Microsoft YaHei", "微软雅黑", sans-serif;}
-
-.report-card .report-tag {
-    font-size: 13px;
-    color: #9aabc4;
-    margin-top: 2px;}
-
-.report-card .report-detail {
-    font-size: 15.5px;
-    color: #43526b;
-    line-height: 1.85;
-    border-top: 1px dashed #e3eaf4;
-    padding-top: 12px;}
-
-.report-card .report-detail .label {
-    color: #073b85;
-    font-weight: 600;}
-
-.report-card .report-detail .hot {
-    color: #b84a4a;
-    font-size: 18px;
-    font-weight: 700;
-    text-decoration: none;}
-
-.report-card .report-detail .hot:hover {
-    text-decoration: underline;}
-
 /* =========================
-   快速导航 + 下载
+   快速链接 + 举报方式
 ========================= */
 
 .bottom-grid {
-    margin-top: 25px;
+    margin-top: 28px;
     display: grid;
-    grid-template-columns: 1.5fr 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: stretch;
     gap: 25px;}
 
 .quick-links {
     background: #fff;
     border: 1px solid #d6e2f3;
-    padding: 0 20px 20px;}
+    padding: 0 20px 20px;
+    height: 100%;}
+
+.quick-links .section-title,
+.report-mini .section-title {
+    height: 60px;
+    margin-bottom: 0;}
 
 .link-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;}
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    padding-top: 14px;}
 
 .link-item {
-    height: 74px;
+    min-height: 72px;
     border: 1px solid #c9daf2;
     background: #f6fbff;
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    padding-left: 18px;
+    padding: 0 18px;
     color: #073b85;
-    font-size: 18px;
+    font-size: 17px;
     font-family: "Microsoft YaHei", "微软雅黑", sans-serif;
-    transition: .25s;}
+    text-align: left;
+    line-height: 1.35;
+    transition: .25s;
+    box-shadow: none;}
+
+.link-item::before {
+    display: none;}
 
 .link-item:hover {
     background: #0b4ea2;
@@ -739,31 +581,52 @@ ul {
     border-color: #0b4ea2;
     transform: translateY(-2px);}
 
-.download {
+.report-mini {
     background: #fff;
     border: 1px solid #d6e2f3;
-    padding: 0 20px 10px;}
+    padding: 0 20px 20px;
+    height: 100%;}
 
-.download li {
-    height: 48px;
-    border-bottom: 1px dashed #ddd;
+.report-mini-list {
+    min-height: 172px;
+    padding-top: 14px;
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);}
+
+.report-mini-item {
+    min-height: 40px;
+    padding: 5px 4px;
+    background: transparent;
+    border-bottom: 1px dashed #dce5f1;
     display: flex;
-    align-items: center;}
+    align-items: center;
+    gap: 14px;}
 
-.download li:last-child {
+.report-mini-item:last-child {
     border-bottom: none;}
 
-.download li span:first-child {
-    flex: 1;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;}
+.report-mini-item h4 {
+    color: #073b85;
+    width: 76px;
+    flex-shrink: 0;
+    font-size: 16px;
+    line-height: 1.5;}
 
-.download .download-btn {
-    font-size: 15px;
+.report-mini-item p {
+    flex: 1;
+    min-width: 0;
+    font-size: 14px;
+    color: #43526b;
+    line-height: 1.55;}
+
+.report-mini-item .hot {
     color: #b84a4a;
-    padding: 2px 7px;
-    border: 1px solid #e1b8bb;}
+    font-size: 17px;
+    font-weight: 700;
+    text-decoration: none;}
+
+.report-mini-item .hot:hover {
+    text-decoration: underline;}
 
 /* =========================
    页脚
@@ -774,71 +637,20 @@ ul {
     background: #062d70;
     color: rgba(255,255,255,.82);}
 
-.footer-main {
-    padding: 40px 0 34px;
-    display: flex;
-    justify-content: space-between;
-    gap: 48px;
-    flex-wrap: wrap;}
-
-.footer-brand {
-    flex: 1 1 460px;
-    min-width: 0;}
-
-.footer-title {
-    color: #fff;
-    font-family: "Microsoft YaHei", "微软雅黑", sans-serif;
-    font-size: 20px;
-    font-weight: 600;
-    line-height: 1.55;
-    margin-bottom: 20px;
-    padding-bottom: 18px;
-    border-bottom: 1px solid rgba(255,255,255,.16);}
-
-.footer-contact p {
-    font-size: 14px;
-    line-height: 2.05;
-    color: rgba(255,255,255,.7);}
-
-.footer-contact .c-label {
-    display: inline-block;
-    width: 70px;
-    color: rgba(255,255,255,.42);
-    margin-right: 6px;}
-
-.footer-links {
-    flex: 0 1 210px;
-    display: flex;
-    flex-direction: column;}
-
-.footer-col-title {
-    color: #fff;
-    font-size: 16px;
-    font-weight: 600;
-    margin-bottom: 16px;
-    padding-left: 12px;
-    border-left: 3px solid #4f9bff;}
-
-.footer-links a {
-    font-size: 14px;
-    color: rgba(255,255,255,.7);
-    line-height: 2.15;
-    transition: color .2s, padding-left .2s;}
-
-.footer-links a:hover {
-    color: #fff;
-    padding-left: 6px;}
-
-.footer-bottom {
-    height: auto;
-    padding: 15px 0;
-    background: #041f52;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 13px;
-    color: rgba(255,255,255,.55);
+.footer-content {
+    padding: 32px 0 28px;
     text-align: center;}
+
+.footer-primary {
+    color: rgba(255,255,255,.86);
+    font-size: 15px;
+    line-height: 2.2;}
+
+.footer-support {
+    margin-top: 8px;
+    color: rgba(255,255,255,.58);
+    font-size: 14px;
+    line-height: 2;}
 
 /* =========================
    返回顶部
@@ -872,6 +684,9 @@ ul {
 @media (max-width: 1250px) {
     .container {
         width: 94%;}
+
+    .logo-title h1 {
+        font-size: 34px;}
 }
 
 @media (max-width: 900px) {
@@ -879,19 +694,16 @@ ul {
     .header-main {
         height: auto;
         padding: 20px 0;
-        flex-direction: column;
-        gap: 18px;
-        align-items: stretch;}
+        align-items: center;}
 
     .logo-area {
-        align-items: flex-start;}
+        align-items: center;}
 
-    /* 竖排布局后空间变大，标题回到较大字号且不换行 */
     .logo-title h1 {
-        font-size: min(26px, max(15px, calc(3.9vw - 5px)));}
+        font-size: min(30px, max(19px, calc(3.2vw)));}
 
-    .search-box {
-        width: 100%;}
+    .top-bar .search-box {
+        width: 210px;}
 
     .nav {
         overflow-x: auto;}
@@ -903,27 +715,6 @@ ul {
     .three-columns,
     .bottom-grid {
         grid-template-columns: 1fr;}
-
-    .warning-content,
-    .rules-content,
-    .report-grid {
-        grid-template-columns: 1fr;}
-
-    .rules-card {
-        padding: 4px 0;}
-
-    .rules-card:first-child {
-        padding-bottom: 18px;}
-
-    .rules-card:last-child {
-        border-left: none;
-        border-top: 1px solid #e4edf8;
-        padding-top: 18px;}
-
-    .report-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;}
 
     .focus-news {
         grid-template-columns: 1fr;
@@ -942,28 +733,27 @@ ul {
     .link-grid {
         grid-template-columns: repeat(2, 1fr);}
 
-    .footer-main {
-        flex-direction: column;
-        gap: 28px;}
-
-    .footer-brand {
-        flex: 1 1 auto;}
-
-    .footer-links {
-        flex: 1 1 auto;}
-
-    .footer-col-title {
-        border-left: none;
-        padding-left: 0;}
 }
 
 @media (max-width: 600px) {
 
     .top-bar {
-        display: none;}
+        display: block;
+        height: 46px;}
+
+    .top-bar .container {
+        height: 46px;
+        gap: 10px;}
+
+    .top-left span {
+        font-size: 12px;}
+
+    .top-bar .search-box {
+        width: 160px;
+        height: 30px;}
 
     .logo-title h1 {
-        font-size: 19px;
+        font-size: 22px;
         white-space: normal;}
 
     .logo-img {
@@ -997,7 +787,7 @@ ul {
         -webkit-line-clamp: 3;}
 
     .link-grid {
-        grid-template-columns: 1fr 1fr;}
+        grid-template-columns: 1fr;}
 }
 </style>
 </head>
@@ -1013,6 +803,24 @@ ul {
 
 <header class="header">
 
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-left">
+                <span>欢迎访问四川职业技术学院纪委办公室、监察处网站</span>
+            </div>
+
+            <div class="search-box">
+                <input type="text" placeholder="请输入关键词搜索">
+                <button aria-label="搜索">
+                    <svg class="icon-svg" viewbox="0 0 24 24" aria-hidden="true">
+                        <circle cx="11" cy="11" r="7"></circle>
+                        <path d="m16 16 4 4"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
     <div class="container header-main">
 
         <div class="logo-area">
@@ -1025,16 +833,6 @@ ul {
 
         </div>
 
-
-        <div class="search-box">
-            <input type="text" placeholder="请输入关键词搜索">
-            <button aria-label="搜索">
-                <svg class="icon-svg" viewbox="0 0 24 24" aria-hidden="true">
-                    <circle cx="11" cy="11" r="7"></circle>
-                    <path d="m16 16 4 4"></path>
-                </svg>
-            </button>
-        </div>
 
     </div>
 
@@ -1060,7 +858,11 @@ ul {
                 </li>
 
                 <li>
-                    <a href="/system/go.jsp?treeid=1017&apptype=treetemp&urltype=tree.TreeTempUrl" target="">要闻摘报</a>
+                    <a href="/system/go.jsp?treeid=1040&apptype=treetemp&urltype=tree.TreeTempUrl" target="">党建工作</a>
+                </li>
+
+                <li>
+                    <a href="/system/go.jsp?treeid=1007&apptype=treetemp&urltype=tree.TreeTempUrl" target="">政策法规</a>
                 </li>
 
                 <li>
@@ -1068,11 +870,7 @@ ul {
                 </li>
 
                 <li>
-                    <a href="/system/linkcolumn.jsp?urltype=tree.TreeTempUrl&column=xgbxx/gzzd" target="">规章制度</a>
-                </li>
-
-                <li>
-                    <a href="/system/go.jsp?treeid=1019&apptype=treetemp&urltype=tree.TreeTempUrl" target="">监督举报</a>
+                    <a href="/system/go.jsp?treeid=1019&apptype=treetemp&urltype=tree.TreeTempUrl" target="">举报方式</a>
                 </li>
 
             </ul>
@@ -1177,12 +975,12 @@ ul {
 </div>
 
 
-<!-- 三栏 -->
+<!-- 专题栏目 -->
 
 <div class="three-columns">
 
 
-<!-- 要闻摘报 -->
+<!-- 党建工作 -->
 
 <section class="card">
 
@@ -1190,15 +988,36 @@ ul {
 
         <div class="title-left">
             <span class="red-line"></span>
-            <h3>要闻摘报</h3>
+            <h3>党建工作</h3>
         </div>
 
-        <a href="/system/go.jsp?treeid=1017&apptype=treetemp&urltype=tree.TreeTempUrl" class="more" target=""><p>更多 →</p></a>
+        <a href="/system/go.jsp?treeid=1040&apptype=treetemp&urltype=tree.TreeTempUrl" class="more" target=""><p>更多 →</p></a>
 
     </div>
 
 
-    <ul class="card-list"><!--#begineditable name="政策list" action="webber.wbst.com.news.ColumnNews" layout="/system/_component/news/list/tpltitlelist.jsp" tpltype="1" contype="news" clone="" viewid="204239" contentviewid="" tagname="政策list"-->elementname<!--#endeditable--></ul>
+    <ul class="card-list"><!--#begineditable name="党建工作列表" action="webber.wbst.com.news.ColumnNews" layout="/system/_component/news/list/tpltitlelist.jsp" tpltype="1" contype="news" clone="" viewid="204239" contentviewid="" tagname="党建工作列表"-->elementname<!--#endeditable--></ul>
+
+</section>
+
+
+<!-- 政策法规 -->
+
+<section class="card">
+
+    <div class="section-title">
+
+        <div class="title-left">
+            <span class="red-line"></span>
+            <h3>政策法规</h3>
+        </div>
+
+        <a href="/system/go.jsp?treeid=1007&apptype=treetemp&urltype=tree.TreeTempUrl" class="more" target=""><p>更多 →</p></a>
+
+    </div>
+
+
+    <ul class="card-list"><!--#begineditable name="政策法规文章列表" action="webber.wbst.com.news.ColumnNews" layout="/system/_component/news/list/tpltitlelist.jsp" tpltype="1" contype="news" clone="" viewid="204242" contentviewid="" tagname="政策法规文章列表"-->elementname<!--#endeditable--></ul>
 
 </section>
 
@@ -1219,28 +1038,7 @@ ul {
     </div>
 
 
-    <ul class="card-list"><!--#begineditable name="制度list" action="webber.wbst.com.news.ColumnNews" layout="/system/_component/news/list/tpltitlelist.jsp" tpltype="1" contype="news" clone="" viewid="204240" contentviewid="" tagname="制度list"-->elementname<!--#endeditable--></ul>
-
-</section>
-
-
-<!-- 警钟长鸣 -->
-
-<section class="card">
-
-    <div class="section-title">
-
-        <div class="title-left">
-            <span class="red-line"></span>
-            <h3>警钟长鸣</h3>
-        </div>
-
-        <a href="/system/go.jsp?treeid=1029&apptype=treetemp&urltype=tree.TreeTempUrl" class="more" target=""><p>更多 →</p></a>
-
-    </div>
-
-
-    <ul class="card-list"><!--#begineditable name="监督list" action="webber.wbst.com.news.ColumnNews" layout="/system/_component/news/list/tpltitlelist.jsp" tpltype="1" contype="news" clone="" viewid="204241" contentviewid="" tagname="监督list"-->elementname<!--#endeditable--></ul>
+    <ul class="card-list"><!--#begineditable name="警示教育列表" action="webber.wbst.com.news.ColumnNews" layout="/system/_component/news/list/tpltitlelist.jsp" tpltype="1" contype="news" clone="" viewid="204240" contentviewid="" tagname="警示教育列表"-->elementname<!--#endeditable--></ul>
 
 </section>
 
@@ -1248,178 +1046,13 @@ ul {
 
 
 <!-- =========================
-     规章制度
-========================= -->
-
-<section class="rules-section">
-
-    <div class="rules-content">
-
-
-        <div class="rules-card">
-
-            <div class="section-title">
-
-                <div class="title-left">
-                    <span class="red-line"></span>
-                    <h3>政策法规</h3>
-                </div>
-
-                <a href="/system/go.jsp?treeid=1007&apptype=treetemp&urltype=tree.TreeTempUrl" class="more" target=""><p>更多 →</p></a>
-
-            </div>
-
-            <ul class="rules-list"><!--#begineditable name="政策法规文章列表" action="webber.wbst.com.news.ColumnNews" layout="/system/_component/news/list/tpltitlelist.jsp" tpltype="1" contype="news" clone="" viewid="204242" contentviewid="" tagname="政策法规文章列表"-->elementname<!--#endeditable--></ul>
-
-        </div>
-
-
-        <div class="rules-card">
-
-            <div class="section-title">
-
-                <div class="title-left">
-                    <span class="red-line"></span>
-                    <h3>党内条规</h3>
-                </div>
-
-                <a href="/system/go.jsp?treeid=1011&apptype=treetemp&urltype=tree.TreeTempUrl" class="more" target=""><p>更多 →</p></a>
-
-            </div>
-
-            <ul class="rules-list"><!--#begineditable name="党内法规文章列表" action="webber.wbst.com.news.ColumnNews" layout="/system/_component/news/list/tpltitlelist.jsp" tpltype="1" contype="news" clone="" viewid="204243" contentviewid="" tagname="党内法规文章列表"-->elementname<!--#endeditable--></ul>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     举报方式
-========================= -->
-
-<section class="report-section">
-
-    <div class="report-header">
-
-        <div>
-            <div class="title-left">
-                <span class="red-line"></span>
-                <h3>监督举报</h3>
-            </div>
-            <p>坚持依规依纪依法受理信访举报，欢迎社会各界对相关问题进行监督。</p>
-        </div>
-
-        <a href="/system/go.jsp?treeid=1019&apptype=treetemp&urltype=tree.TreeTempUrl" class="more" target=""><p>举报须知 →</p></a>
-
-    </div>
-
-
-    <div class="report-grid">
-
-
-        <!-- 来人举报 -->
-
-        <div class="report-card">
-
-            <div class="report-card-top">
-
-                <div class="report-icon">
-                    <svg class="icon-svg" viewbox="0 0 24 24" aria-hidden="true">
-                        <path d="M12 21s-7-5.2-7-11a7 7 0 0 1 14 0c0 5.8-7 11-7 11z"></path>
-                        <circle cx="12" cy="10" r="2.6"></circle>
-                    </svg>
-                </div>
-
-                <div>
-                    <h4>来人举报</h4>
-                    <div class="report-tag">现场来访接待</div>
-                </div>
-
-            </div>
-
-            <div class="report-detail">
-                <span class="label">接待地址：</span><br>
-                四川省遂宁市船山区学府北路1号<br>
-                四川职业技术学院纪委办公室211室
-            </div>
-
-        </div>
-
-
-        <!-- 信件举报 -->
-
-        <div class="report-card">
-
-            <div class="report-card-top">
-
-                <div class="report-icon">
-                    <svg class="icon-svg" viewbox="0 0 24 24" aria-hidden="true">
-                        <path d="M4 6h16v12H4z"></path>
-                        <path d="m4 7 8 6 8-6"></path>
-                    </svg>
-                </div>
-
-                <div>
-                    <h4>信件举报</h4>
-                    <div class="report-tag">邮寄信访材料</div>
-                </div>
-
-            </div>
-
-            <div class="report-detail">
-                <span class="label">邮寄地址：</span><br>
-                四川省遂宁市船山区学府北路1号<br>
-                四川职业技术学院纪委办公室<br>
-                <span class="label">邮编：</span><span class="hot">629000</span>
-            </div>
-
-        </div>
-
-
-        <!-- 电话举报 -->
-
-        <div class="report-card">
-
-            <div class="report-card-top">
-
-                <div class="report-icon">
-                    <svg class="icon-svg" viewbox="0 0 24 24" aria-hidden="true">
-                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.4 19.4 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.96.34 1.9.65 2.81a2 2 0 0 1-.45 2.11L8.04 9.91a16 16 0 0 0 6.05 6.05l1.27-1.27a2 2 0 0 1 2.11-.45c.91.31 1.85.53 2.81.65A2 2 0 0 1 22 16.92z"></path>
-                    </svg>
-                </div>
-
-                <div>
-                    <h4>电话举报</h4>
-                    <div class="report-tag">举报专线</div>
-                </div>
-
-            </div>
-
-            <div class="report-detail">
-                <span class="label">举报电话：</span><br>
-                <a class="hot" href="tel:0825-2312388">0825-2312388</a>
-            </div>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     快速导航 + 下载
+     快速链接 + 举报方式
 ========================= -->
 
 <div class="bottom-grid">
 
 
-    <!-- 快速导航 -->
+    <!-- 快速链接 -->
 
     <section class="quick-links">
 
@@ -1427,7 +1060,7 @@ ul {
 
             <div class="title-left">
                 <span class="red-line"></span>
-                <h3>快速导航</h3>
+                <h3>快速链接</h3>
             </div>
 
         </div>
@@ -1435,24 +1068,20 @@ ul {
 
         <div class="link-grid">
 
-            <a href="/system/go.jsp?treeid=1019&apptype=treetemp&urltype=tree.TreeTempUrl" class="link-item" target="">
-                信访举报
+            <a href="https://www.ccdi.gov.cn/" class="link-item" target="_blank" rel="noopener">
+                中央纪委国家监察
             </a>
 
-            <a href="/system/go.jsp?treeid=1002&apptype=treetemp&urltype=tree.TreeTempUrl" class="link-item" target="">
-                重要通知
+            <a href="https://www.scjc.gov.cn/" class="link-item" target="_blank" rel="noopener">
+                中共四川省纪委 四川监察委员会
             </a>
 
-            <a href="/system/go.jsp?treeid=1039&apptype=treetemp&urltype=tree.TreeTempUrl" class="link-item" target="">
-                警示教育
+            <a href="https://www.sjc.gov.cn/" class="link-item" target="_blank" rel="noopener">
+                中共遂宁市纪委 遂宁监察委员会
             </a>
 
-            <a href="/system/go.jsp?treeid=1017&apptype=treetemp&urltype=tree.TreeTempUrl" class="link-item" target="">
-                要闻摘报
-            </a>
-
-            <a href="/system/go.jsp?treeid=1028&apptype=content&urltype=news.NewsContentUrl&param=wbnewsid%3D1084" class="link-item" target="">
-                部门简介
+            <a href="https://www.scvtc.edu.cn/" class="link-item" target="_blank" rel="noopener">
+                四川职业技术学院
             </a>
 
         </div>
@@ -1460,23 +1089,45 @@ ul {
     </section>
 
 
-    <!-- 下载专区 -->
+    <!-- 举报方式 -->
 
-    <section class="download">
+    <section class="report-mini">
 
         <div class="section-title">
 
             <div class="title-left">
                 <span class="red-line"></span>
-                <h3>下载专区</h3>
+                <h3>举报方式</h3>
             </div>
 
-            <a href="/system/go.jsp?treeid=1033&apptype=treetemp&urltype=tree.TreeTempUrl" class="more" target=""><p>更多 →</p></a>
+            <a href="/system/go.jsp?treeid=1019&apptype=treetemp&urltype=tree.TreeTempUrl" class="more" target=""><p>举报须知 →</p></a>
 
         </div>
 
 
-        <ul><!--#begineditable name="下载list" action="webber.wbst.com.news.ColumnNews" layout="/system/_component/news/list/tpltitlelist.jsp" tpltype="1" contype="news" clone="" viewid="204244" contentviewid="" tagname="下载list"-->elementname<!--#endeditable--></ul>
+        <div class="report-mini-list">
+
+            <div class="report-mini-item">
+                <h4>来访举报</h4>
+                <p>四川职业技术学院纪委办公室211室</p>
+            </div>
+
+            <div class="report-mini-item">
+                <h4>来信举报</h4>
+                <p>学府北路1号纪委办公室，邮编 <span class="hot">629000</span></p>
+            </div>
+
+            <div class="report-mini-item">
+                <h4>电话举报</h4>
+                <p><a class="hot" href="tel:0825-2312388">0825-2312388</a></p>
+            </div>
+
+            <div class="report-mini-item">
+                <h4>邮箱举报</h4>
+                <p>纪委办公室邮箱（待补充）</p>
+            </div>
+
+        </div>
 
     </section>
 
@@ -1495,31 +1146,10 @@ ul {
 
 <footer class="footer">
 
-    <div class="container footer-main">
-
-        <div class="footer-brand">
-
-            <div class="footer-title">中共四川职业技术学院纪律检查委员会办公室、监察处</div>
-
-            <div class="footer-contact">
-                <p><span class="c-label">地址</span>四川省遂宁市船山区学府北路1号</p>
-                <p><span class="c-label">电话</span>0825-2290035</p>
-                <p><span class="c-label">技术支持</span>信息化中心</p>
-            </div>
-
-        </div>
-
-        <div class="footer-links">
-            <div class="footer-col-title">快速链接</div>
-            <a href="https://www.ccdi.gov.cn/">中央纪委国家监察</a>
-            <a href="https://www.scjc.gov.cn/">中共四川省纪委 四川监察委员会</a>
-            <a href="https://www.sjc.gov.cn/">中共遂宁市纪委 遂宁监察委员会</a>
-            <a href="https://www.scvtc.edu.cn/">四川职业技术学院</a>
-        </div>
-
+    <div class="container footer-content">
+        <p class="footer-primary">©中共四川职业技术学院纪律检查委员会办公室、监察处版权所有　联系电话：0825-2290035　四川省遂宁市船山区学府北路1号</p>
+        <p class="footer-support">技术支持：信息化中心</p>
     </div>
-
-    <div class="footer-bottom">版权所有@2026 中共四川职业技术学院纪律检查委员会办公室、监察处</div>
 
 </footer>
 
