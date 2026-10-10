@@ -73,6 +73,7 @@ ul {
     color: #b84a4a;}
 
 .header {
+    overflow-x: clip;
     background:
         linear-gradient(180deg, rgba(255,255,255,.96), rgba(226,238,252,.92)),
         radial-gradient(circle at 18% 15%, rgba(28,94,173,.16), transparent 34%),
@@ -80,6 +81,7 @@ ul {
     color: #06256a;}
 
 .header-main {
+    position: relative;
     min-height: 142px;
     padding: 22px 0;
     display: flex;
@@ -87,7 +89,20 @@ ul {
     justify-content: center;
     gap: 0;}
 
+.header-main::before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 100vw;
+    transform: translateX(-50%);
+    background: url("img/bg.png") center center / cover no-repeat;}
+
 .logo-area {
+    position: relative;
+    z-index: 1;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -152,13 +167,13 @@ ul {
     stroke-linejoin: round;}
 
 .nav {
-    height: 60px;
+    height: 72px;
     background: linear-gradient(90deg, #001a66, #064fa7 52%, #001a66);
     border-top: 1px solid rgba(255,255,255,.55);
     box-shadow: 0 3px 10px rgba(0,38,110,.2);}
 
 .nav ul {
-    height: 60px;
+    height: 72px;
     display: flex;}
 
 .nav li {
@@ -167,8 +182,8 @@ ul {
 
 .nav a {
     display: block;
-    height: 60px;
-    line-height: 60px;
+    height: 72px;
+    line-height: 72px;
     color: #fff;
     font-size: 18px;
     font-family: "Microsoft YaHei", "微软雅黑", sans-serif;
@@ -841,7 +856,8 @@ ul {
         <aside class="sidebar-left">
 
             <div class="side-menu">
-                <div class="side-menu-title"><!--#begineditable name="栏目名称1" action="webber.wbst.com.nav.MenuAction" layout="/system/_component/sitenav/tplshowcolumnname.jsp" tpltype="1" contype="" clone="" viewid="204249" contentviewid="" tagname="栏目名称1"-->elementname<!--#endeditable--></div>
+                <div class="side-menu-title"><span></span>
+                    网站导航</div>
 
                 <ul>
                     <li>
